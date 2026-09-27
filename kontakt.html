@@ -15,23 +15,25 @@
     <div class="wrap">
       <a class="logo" href="index.html" aria-label="Obytňák Vysočina – úvodní stránka">
         <img src="src/logo.png" alt="Obytňák Vysočina" width="56" height="56">
+        <span class="logo-text" data-i18n="logo.tagline">Obytňák na prázdniny</span>
       </a>
       <button class="burger" aria-label="Menu" aria-expanded="false" aria-controls="nav"><span></span></button>
       <nav class="nav" id="nav">
-        <a href="obytne-auto.html">Obytné auto</a>
-        <a href="cenik.html">Ceník</a>
-        <a href="blog.html">Blog</a>
-        <a href="rezervace.html" class="cta">Rezervace</a>
-        <a href="kontakt.html" class="active" aria-current="page">Kontakt</a>
+        <a href="obytne-auto.html" data-i18n="nav.auto">Obytné auto</a>
+        <a href="cenik.html" data-i18n="nav.pricing">Ceník</a>
+        <a href="blog.html" data-i18n="nav.blog">Blog</a>
+        <a href="rezervace.html" class="cta" data-i18n="nav.reservation">Rezervace</a>
+        <a href="kontakt.html" class="active" aria-current="page" data-i18n="nav.contact">Kontakt</a>
+        <span class="lang-switch"></span>
       </nav>
     </div>
   </header>
 
   <section class="hero small" style="background-image:url('src/carado-a464-ext-bok.jpg')">
     <div class="wrap">
-      <span class="eyebrow" style="color:#e8b872">Kontakt</span>
-      <h1>Ozvěte se nám</h1>
-      <p class="lead">Rádi poradíme s výběrem termínu, trasou i výbavou.</p>
+      <span class="eyebrow" style="color:#e8b872" data-i18n="kontakt.eyebrow">Kontakt</span>
+      <h1 data-i18n="kontakt.title">Ozvěte se nám</h1>
+      <p class="lead" data-i18n="kontakt.lead">Rádi poradíme s výběrem termínu, trasou i výbavou.</p>
     </div>
   </section>
 
@@ -50,13 +52,13 @@
         </div>
         <div class="contact-card panel">
           <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-6.2 7-11a7 7 0 10-14 0c0 4.8 7 11 7 11zM12 12a2.5 2.5 0 100-5 2.5 2.5 0 000 5z"/></svg></span>
-          <h3>Adresa</h3>
+          <h3 data-i18n="kontakt.card.address">Adresa</h3>
           Wenzigova 12, 120 00 Praha 2 – Vinohrady
         </div>
         <div class="contact-card panel">
           <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21a9 9 0 100-18 9 9 0 000 18zM12 7v5l3 2"/></svg></span>
-          <h3>Kdy jsme k dispozici</h3>
-          Po–Ne 8:00–20:00 (po domluvě)
+          <h3 data-i18n="kontakt.card.hours">Kdy jsme k dispozici</h3>
+          <span data-i18n="kontakt.card.hoursValue">Po–Ne 8:00–20:00 (po domluvě)</span>
         </div>
       </div>
     </div>
@@ -93,46 +95,47 @@
       <div class="foot-grid">
         <div>
           <a class="logo footer-logo" href="index.html"><img src="src/logo.png" alt="Obytňák Vysočina" width="110" height="110"></a>
-          <p>Pronájem obytného vozu Carado A 464. Vyrazte za dobrodružstvím bez starostí – vůz je připravený, pojištěný a čeká jen na vás.</p>
+          <p data-i18n="footer.about">Pronájem obytného vozu Carado A 464. Vyrazte za dobrodružstvím bez starostí – vůz je připravený, pojištěný a čeká jen na vás.</p>
           <div class="socials">
             <a href="#" aria-label="Instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3h10a4 4 0 014 4v10a4 4 0 01-4 4H7a4 4 0 01-4-4V7a4 4 0 014-4zM12 16a4 4 0 100-8 4 4 0 000 8zM17.5 6.5h.01"/></svg></a>
             <a href="#" aria-label="Facebook" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 8h3V4h-3a4 4 0 00-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8z"/></svg></a>
           </div>
         </div>
         <div>
-          <h4>Menu</h4>
+          <h4 data-i18n="footer.menu">Menu</h4>
           <ul>
-            <li><a href="obytne-auto.html">Obytné auto</a></li>
-            <li><a href="cenik.html">Ceník</a></li>
-            <li><a href="blog.html">Blog</a></li>
-            <li><a href="rezervace.html">Rezervace</a></li>
-            <li><a href="kontakt.html">Kontakt</a></li>
+            <li><a href="obytne-auto.html" data-i18n="nav.auto">Obytné auto</a></li>
+            <li><a href="cenik.html" data-i18n="nav.pricing">Ceník</a></li>
+            <li><a href="blog.html" data-i18n="nav.blog">Blog</a></li>
+            <li><a href="rezervace.html" data-i18n="nav.reservation">Rezervace</a></li>
+            <li><a href="kontakt.html" data-i18n="nav.contact">Kontakt</a></li>
           </ul>
         </div>
         <div>
-          <h4>Užitečné</h4>
+          <h4 data-i18n="footer.useful">Užitečné</h4>
           <ul>
-            <li><a href="cenik.html#podminky">Podmínky pronájmu</a></li>
-            <li><a href="rezervace.html">Volné termíny</a></li>
-            <li><a href="blog.html">Rady a tipy</a></li>
+            <li><a href="cenik.html#podminky" data-i18n="footer.useful.terms">Podmínky pronájmu</a></li>
+            <li><a href="rezervace.html" data-i18n="footer.useful.dates">Volné termíny</a></li>
+            <li><a href="blog.html" data-i18n="footer.useful.tips">Rady a tipy</a></li>
           </ul>
         </div>
         <div>
-          <h4>Kontakt</h4>
+          <h4 data-i18n="footer.contact">Kontakt</h4>
           <ul>
             <li><a href="tel:+420732574782">+420 732 574 782</a></li>
             <li><a href="mailto:obytnakvysocina@icloud.com">obytnakvysocina@icloud.com</a></li>
             <li>Nad Cihelnou 663, 582 91 Světlá nad Sázavou</li>
-            <li>Po–Ne 8:00–20:00 (po domluvě)</li>
+            <li data-i18n="footer.hours">Po–Ne 8:00–20:00 (po domluvě)</li>
           </ul>
         </div>
       </div>
       <div class="copy">
-        <span>© <span id="year">2026</span> Obytňák Vysočina. Všechna práva vyhrazena.</span>
-        <span>Pronájem obytného vozu Carado A 464</span>
+        <span>© <span id="year">2026</span> Obytňák Vysočina. <span data-i18n="footer.rights">Všechna práva vyhrazena.</span></span>
+        <span data-i18n="footer.rental">Pronájem obytného vozu Carado A 464</span>
       </div>
     </div>
   </footer>
+  <script src="js/i18n.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

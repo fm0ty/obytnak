@@ -15,23 +15,25 @@
     <div class="wrap">
       <a class="logo" href="index.html" aria-label="Obytňák Vysočina – úvodní stránka">
         <img src="src/logo.png" alt="Obytňák Vysočina" width="56" height="56">
+        <span class="logo-text" data-i18n="logo.tagline">Obytňák na prázdniny</span>
       </a>
       <button class="burger" aria-label="Menu" aria-expanded="false" aria-controls="nav"><span></span></button>
       <nav class="nav" id="nav">
-        <a href="obytne-auto.html" class="active" aria-current="page">Obytné auto</a>
-        <a href="cenik.html">Ceník</a>
-        <a href="blog.html">Blog</a>
-        <a href="rezervace.html" class="cta">Rezervace</a>
-        <a href="kontakt.html">Kontakt</a>
+        <a href="obytne-auto.html" class="active" aria-current="page" data-i18n="nav.auto">Obytné auto</a>
+        <a href="cenik.html" data-i18n="nav.pricing">Ceník</a>
+        <a href="blog.html" data-i18n="nav.blog">Blog</a>
+        <a href="rezervace.html" class="cta" data-i18n="nav.reservation">Rezervace</a>
+        <a href="kontakt.html" data-i18n="nav.contact">Kontakt</a>
+        <span class="lang-switch"></span>
       </nav>
     </div>
   </header>
 
   <section class="hero small" style="background-image:url('src/carado-a464-ext-bok.jpg')">
     <div class="wrap">
-      <span class="eyebrow" style="color:#e8b872">Obytné auto</span>
-      <h1>Carado A 464</h1>
-      <p class="lead">Alkovna pro celou rodinu – prostorná, moderní a připravená na cesty.</p>
+      <span class="eyebrow" style="color:#e8b872" data-i18n="auto.eyebrow">Obytné auto</span>
+      <h1 data-i18n="auto.hero.title">Carado A 464</h1>
+      <p class="lead" data-i18n="auto.lead">Alkovna pro celou rodinu – prostorná, moderní a připravená na cesty.</p>
     </div>
   </section>
 
@@ -72,42 +74,19 @@
         <h2>Podívejte se dovnitř</h2>
       </div>
       <div class="strip">
-        <a href="src/carado-a464-int-loznice.jpg" data-lb data-caption="Pevné lůžko vzadu"><img src="src/carado-a464-int-loznice.jpg" alt="Ložnice" loading="lazy"></a>
-        <a href="src/carado-a464-int-kuchyn.jpg" data-lb data-caption="Kuchyňský kout"><img src="src/carado-a464-int-kuchyn.jpg" alt="Kuchyňský kout" loading="lazy"></a>
-        <a href="src/carado-a464-int-koupelna.jpg" data-lb data-caption="Koupelna s oddělenou sprchou"><img src="src/carado-a464-int-koupelna.jpg" alt="Koupelna" loading="lazy"></a>
-        <a href="src/carado-a464-ext-predek-2.jpg" data-lb data-caption="Alkovna nad kabinou"><img src="src/carado-a464-ext-predek-2.jpg" alt="Alkovna nad kabinou" loading="lazy"></a>
-      </div>
-      <p class="center" style="margin-top:28px"><button type="button" class="btn ghost" id="galleryToggle" aria-expanded="false" aria-controls="galeriePlna">Celá fotogalerie</button></p>
-    </div>
-  </section>
+          <a href="src/carado-a464-int-loznice.jpg" data-lb data-caption="Pevné lůžko vzadu"><img src="src/carado-a464-int-loznice.jpg" alt="Ložnice" loading="lazy"></a>
+          <a href="src/carado-a464-int-kuchyn.jpg" data-lb data-caption="Kuchyňský kout"><img src="src/carado-a464-int-kuchyn.jpg" alt="Kuchyňský kout" loading="lazy"></a>
+          <a href="src/carado-a464-int-koupelna.jpg" data-lb data-caption="Koupelna s oddělenou sprchou"><img src="src/carado-a464-int-koupelna.jpg" alt="Koupelna" loading="lazy"></a>
+          <a href="src/carado-a464-ext-predek-2.jpg" data-lb data-caption="Alkovna nad kabinou"><img src="src/carado-a464-ext-predek-2.jpg" alt="Alkovna nad kabinou" loading="lazy"></a>
+          <a href="src/carado-a464-ext-predek.jpg" data-lb data-cat="ext" data-caption="Carado A 464 – pohled zepředu"><img src="src/carado-a464-ext-predek.jpg" alt="Carado A 464 zepředu" loading="lazy"><span>Pohled zepředu</span></a>
+          <a href="src/carado-a464-int-celkovy-pohled.jpg" data-lb data-cat="int" data-caption="Celkový pohled do interiéru"><img src="src/carado-a464-int-celkovy-pohled.jpg" alt="Interiér vozu – kuchyň, jídelní kout a ložnice" loading="lazy"><span>Interiér vozu</span></a>
+          <a href="src/carado-a464-int-loznice.jpg" data-lb data-cat="int" data-caption="Pevné lůžko vzadu"><img src="src/carado-a464-int-loznice.jpg" alt="Ložnice" loading="lazy"><span>Ložnice</span></a>
+          <a href="src/carado-a464-int-kuchyn.jpg" data-lb data-cat="int" data-caption="Kuchyňský kout"><img src="src/carado-a464-int-kuchyn.jpg" alt="Kuchyňský kout" loading="lazy"><span>Kuchyň</span></a>
+          <a href="src/carado-a464-int-koupelna.jpg" data-lb data-cat="int" data-caption="Koupelna s oddělenou sprchou"><img src="src/carado-a464-int-koupelna.jpg" alt="Koupelna" loading="lazy"><span>Koupelna</span></a>
+          <a href="src/carado-a464-int-kabina.jpg" data-lb data-cat="int" data-caption="Kabina řidiče"><img src="src/carado-a464-int-kabina.jpg" alt="Kabina řidiče" loading="lazy"><span>Kabina řidiče</span></a>
+          <a href="src/carado-a464-int-kabina-zavesy.jpg" data-lb data-cat="int" data-caption="Pohled do kabiny"><img src="src/carado-a464-int-kabina-zavesy.jpg" alt="Pohled do kabiny" loading="lazy"><span>Pohled do kabiny</span></a>
+          <a href="src/pudorys-carado-a464.jpg" data-lb data-cat="plan" data-caption="Půdorys vozu – uspořádání lůžek, kuchyně a koupelny"><img src="src/pudorys-carado-a464.jpg" alt="Půdorys vozu shora – alkovna, sedačky, kuchyň, koupelna a zadní lůžko" loading="lazy"><span>Půdorys vozu</span></a>
 
-  <!-- CELÁ FOTOGALERIE (rozbalitelná) -->
-  <section class="section alt" id="galerie-full">
-    <div class="wrap" id="galeriePlna" hidden>
-      <div class="section-head">
-        <span class="eyebrow">Fotogalerie</span>
-        <h2>Podívejte se na náš obytňák</h2>
-      </div>
-      <div class="filters" data-target="#galleryGrid">
-        <button type="button" class="on" data-cat="all">Vše</button>
-        <button type="button" data-cat="ext">Exteriér</button>
-        <button type="button" data-cat="int">Interiér</button>
-        <button type="button" data-cat="plan">Půdorys</button>
-      </div>
-      <div class="gallery" id="galleryGrid">
-        <a href="src/carado-a464-ext-predek.jpg" data-lb data-cat="ext" data-caption="Carado A 464 – pohled zepředu"><img src="src/carado-a464-ext-predek.jpg" alt="Carado A 464 zepředu" loading="lazy"><span>Pohled zepředu</span></a>
-        <a href="src/carado-a464-ext-bok.jpg" data-lb data-cat="ext" data-caption="Pohled z boku"><img src="src/carado-a464-ext-bok.jpg" alt="Carado A 464 z boku" loading="lazy"><span>Pohled z boku</span></a>
-        <a href="src/carado-a464-ext-bok-2.jpg" data-lb data-cat="ext" data-caption="Pohled z boku"><img src="src/carado-a464-ext-bok-2.jpg" alt="Carado A 464 z boku" loading="lazy"><span>Pohled z boku</span></a>
-        <a href="src/carado-a464-ext-cela.jpg" data-lb data-cat="ext" data-caption="Celkový pohled na vůz"><img src="src/carado-a464-ext-cela.jpg" alt="Celkový pohled na vůz" loading="lazy"><span>Celkový pohled</span></a>
-        <a href="src/carado-a464-ext-predek-2.jpg" data-lb data-cat="ext" data-caption="Alkovna nad kabinou"><img src="src/carado-a464-ext-predek-2.jpg" alt="Alkovna nad kabinou" loading="lazy"><span>Alkovna nad kabinou</span></a>
-        <a href="src/carado-a464-ext-priroda.jpg" data-lb data-cat="ext" data-caption="Vůz v přírodě"><img src="src/carado-a464-ext-priroda.jpg" alt="Vůz v přírodě" loading="lazy"><span>V přírodě</span></a>
-        <a href="src/carado-a464-int-celkovy-pohled.jpg" data-lb data-cat="int" data-caption="Celkový pohled do interiéru"><img src="src/carado-a464-int-celkovy-pohled.jpg" alt="Interiér vozu – kuchyň, jídelní kout a ložnice" loading="lazy"><span>Interiér vozu</span></a>
-        <a href="src/carado-a464-int-loznice.jpg" data-lb data-cat="int" data-caption="Pevné lůžko vzadu"><img src="src/carado-a464-int-loznice.jpg" alt="Ložnice" loading="lazy"><span>Ložnice</span></a>
-        <a href="src/carado-a464-int-kuchyn.jpg" data-lb data-cat="int" data-caption="Kuchyňský kout"><img src="src/carado-a464-int-kuchyn.jpg" alt="Kuchyňský kout" loading="lazy"><span>Kuchyň</span></a>
-        <a href="src/carado-a464-int-koupelna.jpg" data-lb data-cat="int" data-caption="Koupelna s oddělenou sprchou"><img src="src/carado-a464-int-koupelna.jpg" alt="Koupelna" loading="lazy"><span>Koupelna</span></a>
-        <a href="src/carado-a464-int-kabina.jpg" data-lb data-cat="int" data-caption="Kabina řidiče"><img src="src/carado-a464-int-kabina.jpg" alt="Kabina řidiče" loading="lazy"><span>Kabina řidiče</span></a>
-        <a href="src/carado-a464-int-kabina-zavesy.jpg" data-lb data-cat="int" data-caption="Pohled do kabiny"><img src="src/carado-a464-int-kabina-zavesy.jpg" alt="Pohled do kabiny" loading="lazy"><span>Pohled do kabiny</span></a>
-        <a href="src/pudorys-carado-a464.jpg" data-lb data-cat="plan" data-caption="Půdorys vozu – uspořádání lůžek, kuchyně a koupelny"><img src="src/pudorys-carado-a464.jpg" alt="Půdorys vozu shora – alkovna, sedačky, kuchyň, koupelna a zadní lůžko" loading="lazy"><span>Půdorys vozu</span></a>
       </div>
     </div>
   </section>
@@ -206,46 +185,47 @@
       <div class="foot-grid">
         <div>
           <a class="logo footer-logo" href="index.html"><img src="src/logo.png" alt="Obytňák Vysočina" width="110" height="110"></a>
-          <p>Pronájem obytného vozu Carado A 464. Vyrazte za dobrodružstvím bez starostí – vůz je připravený, pojištěný a čeká jen na vás.</p>
+          <p data-i18n="footer.about">Pronájem obytného vozu Carado A 464. Vyrazte za dobrodružstvím bez starostí – vůz je připravený, pojištěný a čeká jen na vás.</p>
           <div class="socials">
             <a href="#" aria-label="Instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3h10a4 4 0 014 4v10a4 4 0 01-4 4H7a4 4 0 01-4-4V7a4 4 0 014-4zM12 16a4 4 0 100-8 4 4 0 000 8zM17.5 6.5h.01"/></svg></a>
             <a href="#" aria-label="Facebook" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 8h3V4h-3a4 4 0 00-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8z"/></svg></a>
           </div>
         </div>
         <div>
-          <h4>Menu</h4>
+          <h4 data-i18n="footer.menu">Menu</h4>
           <ul>
-            <li><a href="obytne-auto.html">Obytné auto</a></li>
-            <li><a href="cenik.html">Ceník</a></li>
-            <li><a href="blog.html">Blog</a></li>
-            <li><a href="rezervace.html">Rezervace</a></li>
-            <li><a href="kontakt.html">Kontakt</a></li>
+            <li><a href="obytne-auto.html" data-i18n="nav.auto">Obytné auto</a></li>
+            <li><a href="cenik.html" data-i18n="nav.pricing">Ceník</a></li>
+            <li><a href="blog.html" data-i18n="nav.blog">Blog</a></li>
+            <li><a href="rezervace.html" data-i18n="nav.reservation">Rezervace</a></li>
+            <li><a href="kontakt.html" data-i18n="nav.contact">Kontakt</a></li>
           </ul>
         </div>
         <div>
-          <h4>Užitečné</h4>
+          <h4 data-i18n="footer.useful">Užitečné</h4>
           <ul>
-            <li><a href="cenik.html#podminky">Podmínky pronájmu</a></li>
-            <li><a href="rezervace.html">Volné termíny</a></li>
-            <li><a href="blog.html">Rady a tipy</a></li>
+            <li><a href="cenik.html#podminky" data-i18n="footer.useful.terms">Podmínky pronájmu</a></li>
+            <li><a href="rezervace.html" data-i18n="footer.useful.dates">Volné termíny</a></li>
+            <li><a href="blog.html" data-i18n="footer.useful.tips">Rady a tipy</a></li>
           </ul>
         </div>
         <div>
-          <h4>Kontakt</h4>
+          <h4 data-i18n="footer.contact">Kontakt</h4>
           <ul>
             <li><a href="tel:+420732574782">+420 732 574 782</a></li>
             <li><a href="mailto:obytnakvysocina@icloud.com">obytnakvysocina@icloud.com</a></li>
             <li>Nad Cihelnou 663, 582 91 Světlá nad Sázavou</li>
-            <li>Po–Ne 8:00–20:00 (po domluvě)</li>
+            <li data-i18n="footer.hours">Po–Ne 8:00–20:00 (po domluvě)</li>
           </ul>
         </div>
       </div>
       <div class="copy">
-        <span>© <span id="year">2026</span> Obytňák Vysočina. Všechna práva vyhrazena.</span>
-        <span>Pronájem obytného vozu Carado A 464</span>
+        <span>© <span id="year">2026</span> Obytňák Vysočina. <span data-i18n="footer.rights">Všechna práva vyhrazena.</span></span>
+        <span data-i18n="footer.rental">Pronájem obytného vozu Carado A 464</span>
       </div>
     </div>
   </footer>
+  <script src="js/i18n.js"></script>
   <script src="js/main.js"></script>
   <script>
     (function () {
