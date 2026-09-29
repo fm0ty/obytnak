@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <title>Aktivace FormSubmit</title>
+</head>
+<body>
+  <h1>Jednorázová aktivace e-mailu ve FormSubmit</h1>
+  <p>Tento formulář slouží pouze k tomu, aby FormSubmit poslal aktivační e-mail na <b>f.motycka@seznam.cz</b>.
+     Po odeslání zkontrolujte schránku (i spam) a klikněte na potvrzovací odkaz.
+     Poté tento soubor můžete smazat.</p>
+  <form action="https://formsubmit.co/f.motycka@seznam.cz" method="POST">
+    <input type="hidden" name="_subject" value="Aktivace FormSubmit - Obytnak">
+    <input type="hidden" name="_captcha" value="false">
+    <label>Jméno: <input type="text" name="name" value="Aktivace"></label><br><br>
+    <label>Zpráva: <input type="text" name="message" value="Testovaci zprava pro aktivaci FormSubmit."></label><br><br>
+    <button type="submit">Odeslat aktivační e-mail</button>
+  </form>
+</body>
+</html>
