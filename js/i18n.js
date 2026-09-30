@@ -95,6 +95,7 @@ const I18N_DICT = {
 
   "cenik.eyebrow": { cs: "Ceník", en: "Prices", de: "Preise", pl: "Cennik" },
   "cenik.title": { cs: "Přehledné a férové ceny", en: "Clear and fair prices", de: "Übersichtliche und faire Preise", pl: "Przejrzyste i uczciwe ceny" },
+  "cenik.body.info": { cs: "Cena se řídí sezónou, ve které pronájem začíná a končí. Pronájem se počítá na dny (den převzetí i den vrácení se počítají). Minimální délka pronájmu je v hlavní sezóně 5 dní, jinak 2 dny.", en: "The price depends on the season when the rental starts and ends. Rental is calculated per day (pick-up and return days are both counted). Minimum rental length is 5 days in high season, otherwise 2 days.", de: "Der Preis richtet sich nach der Saison, in der die Vermietung beginnt und endet. Die Vermietung wird pro Tag berechnet (Abhol- und Rückgabetag werden beide gezählt). Mindestmietdauer ist in der Hauptsaison 5 Tage, sonst 2 Tage.", pl: "Cena zależy od sezonu, w którym zaczyna i kończy się wynajem. Wynajem liczony jest na dni (liczy się dzień odbioru i dzień zwrotu). Minimalny okres wynajmu to 5 dni w sezonie wysokim, w przeciwnym razie 2 dni." },
 
   "rezervace.eyebrow": { cs: "Rezervace", en: "Booking", de: "Buchung", pl: "Rezerwacja" },
   "rezervace.title": { cs: "Zarezervujte si obytňák", en: "Book the camper", de: "Wohnmobil buchen", pl: "Zarezerwuj kampera" },
@@ -110,6 +111,176 @@ const I18N_DICT = {
   "cenik.lead": { cs: "Cena za den podle sezóny. Žádné skryté poplatky.", en: "Price per day depending on the season. No hidden fees.", de: "Preis pro Tag je nach Saison. Keine versteckten Gebühren.", pl: "Cena za dzień w zależności od sezonu. Żadnych ukrytych opłat." },
   "rezervace.title2": { cs: "Rezervujte svůj termín", en: "Book your date", de: "Buchen Sie Ihren Termin", pl: "Zarezerwuj swój termin" },
   "rezervace.lead": { cs: "Podívejte se do kalendáře, vyberte dny a odešlete poptávku.", en: "Check the calendar, select the days and send us your request.", de: "Schauen Sie in den Kalender, wählen Sie die Tage und senden Sie Ihre Anfrage.", pl: "Sprawdź kalendarz, wybierz dni i wyślij zapytanie." },
+
+  // Index / vehicle chips
+  "vehicle.chips.seats": { cs: "6 míst k jízdě", en: "6 seats", de: "6 Sitzplätze", pl: "6 miejsc do jazdy" },
+  "vehicle.chips.beds": { cs: "6 lůžek", en: "6 beds", de: "6 Schlafplätze", pl: "6 miejsc do spania" },
+  "vehicle.chips.length": { cs: "7,24 m", en: "7.24 m", de: "7,24 m", pl: "7,24 m" },
+  "vehicle.chips.gearbox": { cs: "Manuál", en: "Manual", de: "Schaltgetriebe", pl: "Manualna" },
+  "vehicle.chips.license": { cs: "Sk. B", en: "Cat. B", de: "Kl. B", pl: "Kat. B" },
+
+  // Auto detail: about
+  "auto.about.p1": { cs: "Carado A 464 je alkovnový obytný vůz z roku 2023 na podvozku Fiat Ducato. Díky velké alkovně nad kabinou, pevnému lůžku vzadu a rozkládacímu jídelnímu koutu pohodlně přenocuje až šest lidí.", en: "The Carado A 464 is an alcove camper from 2023 built on a Fiat Ducato chassis. Thanks to the large alcove over the cab, a fixed bed at the rear and a convertible dining area, it comfortably sleeps up to six people.", de: "Der Carado A 464 ist ein Alkoven-Wohnmobil aus dem Jahr 2023 auf Fiat-Ducato-Basis. Dank des großen Alkoven über dem Fahrerhaus, dem festen Bett hinten und der umbaubaren Sitzgruppe bietet es bequem Platz für bis zu sechs Personen.", pl: "Carado A 464 to kamper alkowowy z 2023 roku na podwoziu Fiat Ducato. Dzięki dużej alkowie nad kabiną, stałemu łóżku z tyłu i rozkładanej jadalni pomieści komfortowo do sześciu osób." },
+  "auto.about.p2": { cs: "Vzadu najdete pevné lůžko, uprostřed vybavenou kuchyň a koupelnu s oddělenou sprchou a WC. Vůz zvládne řidič se skupinou B a je vhodný i pro rodiny s dětmi (ISOFIX pro dvě sedačky).", en: "At the rear you'll find a fixed bed, a fully equipped kitchen in the middle and a bathroom with a separate shower and toilet. The vehicle can be driven with a category B licence and is family-friendly (ISOFIX for two child seats).", de: "Im Heck finden Sie ein festes Bett, in der Mitte eine ausgestattete Küche und ein Bad mit separater Dusche und WC. Das Fahrzeug ist mit Führerschein Klasse B fahrbar und familienfreundlich (ISOFIX für zwei Kindersitze).", pl: "Z tyłu znajduje się stałe łóżko, pośrodku w pełni wyposażona kuchnia i łazienka z oddzielnym prysznicem i toaletą. Pojazd może prowadzić kierowca z prawem jazdy kat. B i jest odpowiedni dla rodzin z dziećmi (ISOFIX dla dwóch fotelików)." },
+  "auto.about.dimensions": { cs: "Rozměry: délka 7,24 m", en: "Dimensions: length 7.24 m", de: "Abmessungen: Länge 7,24 m", pl: "Wymiary: długość 7,24 m" },
+
+  // Gallery
+  "auto.gallery.bedroom": { cs: "Pevné lůžko vzadu", en: "Fixed bed at the rear", de: "Festes Bett hinten", pl: "Stałe łóżko z tyłu" },
+  "auto.gallery.kitchen": { cs: "Kuchyňský kout", en: "Kitchen area", de: "Küchenzeile", pl: "Kuchnia" },
+  "auto.gallery.bathroom": { cs: "Koupelna s oddělenou sprchou", en: "Bathroom with separate shower", de: "Badezimmer mit separater Dusche", pl: "Łazienka z oddzielnym prysznicem" },
+  "auto.gallery.alkove": { cs: "Alkovna nad kabinou", en: "Alcove over the cab", de: "Alkoven über dem Fahrerhaus", pl: "Alkowa nad kabiną" },
+  "auto.gallery.front": { cs: "Pohled zepředu", en: "Front view", de: "Blick von vorne", pl: "Widok z przodu" },
+  "auto.gallery.interior": { cs: "Interiér vozu", en: "Interior view", de: "Innenansicht", pl: "Widok wnętrza" },
+  "auto.gallery.floorplan": { cs: "Půdorys vozu", en: "Floor plan", de: "Grundriss", pl: "Rzut" },
+
+  // Layout
+  "auto.layout.text": { cs: "Vzadu je pevné lůžko, které nemusíte každý večer stavět. Jídelní kout se snadno promění na další lůžko a alkovna nabízí další velkou spací plochu.", en: "At the rear there is a fixed bed you don't have to set up nightly. The dining area easily converts into another bed and the alcove offers an additional large sleeping surface.", de: "Im Heck befindet sich ein festes Bett, das Sie nicht jede Nacht aufbauen müssen. Die Sitzgruppe lässt sich leicht in ein weiteres Bett verwandeln und der Alkoven bietet zusätzliche Schlaffläche.", pl: "Z tyłu znajduje się stałe łóżko, którego nie trzeba codziennie rozkładać. Jadalnia łatwo zamienia się w kolejne łóżko, a alkowa oferuje dodatkową dużą powierzchnię do spania." },
+  "auto.layout.li.fixed": { cs: "Pevné lůžko vzadu", en: "Fixed bed at the rear", de: "Festes Bett hinten", pl: "Stałe łóżko z tyłu" },
+  "auto.layout.li.alkove": { cs: "Alkovna nad kabinou", en: "Alcove over the cab", de: "Alkoven über dem Fahrerhaus", pl: "Alkowa nad kabiną" },
+  "auto.layout.li.dining": { cs: "Rozkládací jídelní kout", en: "Convertible dining area", de: "Umbaubare Sitzgruppe", pl: "Rozkładana jadalnia" },
+  "auto.layout.li.shower": { cs: "Koupelna s oddělenou sprchou", en: "Bathroom with separate shower", de: "Badezimmer mit separater Dusche", pl: "Łazienka z oddzielnym prysznicem" },
+
+  // Equipment – cabin
+  "auto.equip.cabin.1": { cs: "Automatická klimatizace", en: "Automatic air conditioning", de: "Automatische Klimaanlage", pl: "Klimatyzacja automatyczna" },
+  "auto.equip.cabin.2": { cs: "Parkovací kamera a senzory", en: "Parking camera and sensors", de: "Rückfahrkamera und Sensoren", pl: "Kamera i czujniki parkowania" },
+  "auto.equip.cabin.3": { cs: "Tempomat a rádio", en: "Cruise control and radio", de: "Tempomat und Radio", pl: "Tempomat i radio" },
+  "auto.equip.cabin.4": { cs: "Airbag řidiče a spolujezdce", en: "Driver and passenger airbags", de: "Fahrer- und Beifahrerairbags", pl: "Poduszki powietrzne kierowcy i pasażera" },
+  "auto.equip.cabin.5": { cs: "ABS + ESP", en: "ABS + ESP", de: "ABS + ESP", pl: "ABS + ESP" },
+  "auto.equip.cabin.6": { cs: "ISOFIX pro dvě sedačky", en: "ISOFIX for two child seats", de: "ISOFIX für zwei Kindersitze", pl: "ISOFIX dla dwóch fotelików" },
+
+  // Equipment – living
+  "auto.equip.living.1": { cs: "Klimatizace Dometic FreshJet FJZ4 2200", en: "Dometic FreshJet FJZ4 2200 air conditioning", de: "Dometic FreshJet FJZ4 2200 Klimaanlage", pl: "Klimatyzacja Dometic FreshJet FJZ4 2200" },
+  "auto.equip.living.2": { cs: "Plynové topení Truma Combi 6 s 10l bojlerem", en: "Truma Combi 6 gas heating with 10l boiler", de: "Truma Combi 6 Gasheizung mit 10-l-Boiler", pl: "Ogrzewanie gazowe Truma Combi 6 z bojlerem 10 l" },
+  "auto.equip.living.3": { cs: "Izolovaná odpadní nádrž", en: "Insulated waste water tank", de: "Isolierter Abwassertank", pl: "Izolowany zbiornik na ścieki" },
+  "auto.equip.living.4": { cs: "Koupelna s oddělenou sprchou a WC", en: "Bathroom with separate shower and toilet", de: "Badezimmer mit separater Dusche und WC", pl: "Łazienka z oddzielnym prysznicem i toaletą" },
+  "auto.equip.living.5": { cs: "Lednice, vařič a dřez", en: "Fridge, stove and sink", de: "Kühlschrank, Herd und Spüle", pl: "Lodówka, kuchenka i zlew" },
+  "auto.equip.living.6": { cs: "Čalounění Arctica", en: "Arctica upholstery", de: "Arctica-Polsterung", pl: "Tapicerka Arctica" },
+  "auto.equip.living.7": { cs: "Záruka těsnosti nástavby 7 let", en: "7-year watertightness warranty on the body", de: "7 Jahre Dichtigkeitsgarantie der Aufbauten", pl: "7-letnia gwarancja szczelności zabudowy" },
+  "auto.equip.living.8": { cs: "Zatemnění oken a moskytiéry", en: "Window darkening and mosquito nets", de: "Verdunkelung der Fenster und Mückennetze", pl: "Przyciemnianie okien i moskitiery" },
+  "auto.equip.living.9": { cs: "Zásuvky 230 V, 12 V a USB", en: "230 V, 12 V and USB sockets", de: "230 V-, 12 V- und USB-Steckdosen", pl: "Gniazdka 230 V, 12 V i USB" },
+
+  // Equipment – outside
+  "auto.equip.outside.1": { cs: "Prostorná garáž, nosnost 150 kg", en: "Spacious garage, load capacity 150 kg", de: "Großer Stauraum, Tragfähigkeit 150 kg", pl: "Przestronny bagażnik, nośność 150 kg" },
+  "auto.equip.outside.2": { cs: "Markýza s LED osvětlením", en: "Awning with LED lighting", de: "Markise mit LED-Beleuchtung", pl: "Markiza z oświetleniem LED" },
+  "auto.equip.outside.3": { cs: "Solární panely + přídavná baterie", en: "Solar panels + auxiliary battery", de: "Solarmodule + Zusatzbatterie", pl: "Panele słoneczne + akumulator pomocniczy" },
+  "auto.equip.outside.4": { cs: "Nosič na 4 kola", en: "Rack for 4 bikes", de: "Fahrradträger für 4 Räder", pl: "Uchwyt na 4 rowery" },
+  "auto.equip.outside.5": { cs: "Vyrovnávací klíny", en: "Levelling blocks", de: "Nivellierkeile", pl: "Kliny poziomujące" },
+  "auto.equip.outside.6": { cs: "Hadice na vodu, prodlužovací kabel", en: "Water hose, extension cable", de: "Wasseranschluss, Verlängerungskabel", pl: "Wąż do wody, przedłużacz" },
+  "auto.equip.outside.7": { cs: "Základní nářadí", en: "Basic tools", de: "Basiswerkzeug", pl: "Narzędzia podstawowe" },
+
+  // Kitchen
+  "auto.kitchen.text": { cs: "Vestavěný vařič, dřez, prostorná lednice a spousta úložného prostoru v zásuvkách a skříňkách.", en: "Built-in stove, sink, spacious fridge and lots of storage space in drawers and cupboards.", de: "Eingebauter Herd, Spüle, großer Kühlschrank und viel Stauraum in Schubladen und Schränken.", pl: "Wbudowana kuchenka, zlew, pojemna lodówka i mnóstwo miejsca do przechowywania w szufladach i szafkach." },
+
+  // Pricing / cenik table headers
+  "cenik.table.season": { cs: "Sezóna", en: "Season", de: "Saison", pl: "Sezon" },
+  "cenik.table.period": { cs: "Období", en: "Period", de: "Zeitraum", pl: "Okres" },
+  "cenik.table.min": { cs: "Min. délka", en: "Min. length", de: "Mindestdauer", pl: "Min. długość" },
+  "cenik.table.price": { cs: "Cena", en: "Price", de: "Preis", pl: "Cena" },
+
+  // Seasons (names + periods + mindays)
+  "season.main.name": { cs: "Hlavní sezóna", en: "High season", de: "Hauptsaison", pl: "Sezon główny" },
+  "season.main.period": { cs: "červenec – srpen", en: "July–August", de: "Juli–August", pl: "lipiec–sierpień" },
+  "season.main.mindays": { cs: "5 dní", en: "5 days", de: "5 Tage", pl: "5 dni" },
+
+  "season.june.name": { cs: "Červen", en: "June", de: "Juni", pl: "czerwiec" },
+  "season.june.period": { cs: "červen", en: "June", de: "Juni", pl: "czerwiec" },
+  "season.june.mindays": { cs: "2 dny", en: "2 days", de: "2 Tage", pl: "2 dni" },
+
+  "season.maysep.name": { cs: "Květen a září", en: "May & September", de: "Mai & September", pl: "maj i wrzesień" },
+  "season.maysep.period": { cs: "květen, září", en: "May, September", de: "Mai, September", pl: "maj, wrzesień" },
+  "season.maysep.mindays": { cs: "2 dny", en: "2 days", de: "2 Tage", pl: "2 dni" },
+
+  "season.spring.name": { cs: "Jaro, říjen a Vánoce", en: "Spring, October & Christmas", de: "Frühling, Oktober & Weihnachten", pl: "Wiosna, październik i Boże Narodzenie" },
+  "season.spring.period": { cs: "únor – duben, říjen, 23.–31. 12.", en: "Feb–Apr, Oct, 23–31 Dec", de: "Feb–Apr, Okt, 23.–31. Dez", pl: "lut–kwi, paźdz., 23.–31.12." },
+  "season.spring.mindays": { cs: "2 dny", en: "2 days", de: "2 Tage", pl: "2 dni" },
+
+  "season.winter.name": { cs: "Zima", en: "Winter", de: "Winter", pl: "Zima" },
+  "season.winter.period": { cs: "listopad, 1.–22. 12., leden", en: "November, 1–22 Dec, January", de: "November, 1.–22. Dez, Januar", pl: "listopad, 1.–22.12., styczeń" },
+  "season.winter.mindays": { cs: "2 dny", en: "2 days", de: "2 Tage", pl: "2 dni" },
+
+  // Discounts / notes
+  "cenik.discounts": { cs: "Slevy za delší pronájem: od 11 dní sleva 10 %, od 21 dní sleva 15 %. Slevy se nesčítají a týkají se jen půjčovného.", en: "Long-term discounts: from 11 days 10% off, from 21 days 15% off. Discounts are not cumulative and apply only to the rental fee.", de: "Rabatte für längere Vermietungen: ab 11 Tagen 10%, ab 21 Tagen 15%. Rabatte sind nicht kombinierbar und gelten nur für die Mietgebühr.", pl: "Zniżki przy dłuższych wynajmach: od 11 dni 10%, od 21 dni 15%. Zniżki nie łączą się i dotyczą tylko opłaty za wynajem." },
+  "cenik.note": { cs: "Ceny jsou orientační. Přesnou cenu vypočítá kalkulačka na stránce Rezervace.", en: "Prices are indicative. The exact price is calculated by the calculator on the Booking page.", de: "Preise sind Richtwerte. Den genauen Preis berechnet der Rechner auf der Buchungsseite.", pl: "Ceny są orientacyjne. Dokładną cenę obliczy kalkulator na stronie rezerwacji." },
+
+  // Extras
+  "cenik.extras.eyebrow": { cs: "Doplňky", en: "Extras", de: "Zusatzleistungen", pl: "Dodatki" },
+  "cenik.extras.title": { cs: "Doplňkové položky", en: "Additional items", de: "Zusätzliche Posten", pl: "Dodatkowe pozycje" },
+  "extra.scooter": { cs: "Koloběžka", en: "Scooter", de: "Tretroller", pl: "Hulajnoga" },
+  "extra.dog": { cs: "Pes", en: "Dog", de: "Hund", pl: "Pies" },
+  "extra.cat": { cs: "Kočka", en: "Cat", de: "Katze", pl: "Kot" },
+  "extra.price": { cs: "1 000 Kč", en: "1,000 CZK", de: "1.000 CZK", pl: "1 000 CZK" },
+
+  // Conditions / Podmínky
+  "cenik.conditions.eyebrow": { cs: "Podmínky", en: "Conditions", de: "Bedingungen", pl: "Warunki" },
+  "cenik.conditions.title": { cs: "Co je dobré vědět", en: "What to know", de: "Was Sie wissen sollten", pl: "Co warto wiedzieć" },
+  "cenik.conditions.takeover.title": { cs: "Předání a vrácení", en: "Pick-up & return", de: "Übergabe und Rückgabe", pl: "Odbiór i zwrot" },
+  "cenik.conditions.takeover.1": { cs: "Převzetí od 14:00, vrácení do 10:00", en: "Pick-up from 14:00, return by 10:00", de: "Abholung ab 14:00, Rückgabe bis 10:00", pl: "Odbiór od 14:00, zwrot do 10:00" },
+  "cenik.conditions.takeover.2": { cs: "Vůz předáváme čistý s plnou nádrží – vracíte ve stejném stavu", en: "You receive the vehicle clean with a full tank – return it in the same condition", de: "Sie erhalten das Fahrzeug sauber mit vollem Tank – Rückgabe im gleichen Zustand", pl: "Otrzymasz pojazd czysty z pełnym bakiem – zwrot w tym samym stanie" },
+  "cenik.conditions.takeover.3": { cs: "Řidič musí mít platný řidičský průkaz skupiny B a být starší 21 let", en: "Driver must hold a valid category B licence and be at least 21 years old", de: "Der Fahrer muss einen gültigen Führerschein Klasse B besitzen und mindestens 21 Jahre alt sein", pl: "Kierowca musi posiadać ważne prawo jazdy kat. B i być starszy niż 21 lat" },
+  "cenik.conditions.takeover.4": { cs: "Součástí předání je podrobné seznámení s vozem", en: "A detailed walkthrough of the vehicle is included in the handover", de: "Bei der Übergabe erhalten Sie eine ausführliche Einweisung in das Fahrzeug", pl: "W ramach odbioru przeprowadzamy szczegółowe zapoznanie się z pojazdem" },
+  "cenik.conditions.insurance.title": { cs: "Kauce a pojištění", en: "Deposit & insurance", de: "Kaution und Versicherung", pl: "Kaucja i ubezpieczenie" },
+  "cenik.conditions.insurance.deposit": { cs: "Vratná kauce 25 000 Kč", en: "Refundable deposit 25,000 CZK", de: "Rückzahlbare Kaution 25.000 CZK", pl: "Zwracalna kaucja 25 000 CZK" },
+
+  // Reservation page – calendar and price info
+  "rezervace.step1.title": { cs: "1. Kalendář obsazenosti", en: "1. Availability calendar", de: "1. Belegungskalender", pl: "1. Kalendarz dostępności" },
+  "rezervace.calendar.info": { cs: "Obsazené dny jsou v kalendáři modré. Klikněte na den převzetí a poté na den vrácení, termín se sám doplní do poptávky.", en: "Booked days are blue in the calendar. Click the pick-up day and then the return day; the dates will be filled into the request automatically.", de: "Belegte Tage sind im Kalender blau. Klicken Sie auf den Abholtag und dann auf den Rückgabetag; die Daten werden automatisch in die Anfrage übernommen.", pl: "Zajęte dni są na kalendarzu oznaczone na niebiesko. Kliknij dzień odbioru, a potem dzień zwrotu — terminy zostaną automatycznie wprowadzone do zapytania." },
+  "rezervace.legend.booked": { cs: "Obsazeno", en: "Booked", de: "Belegt", pl: "Zajęte" },
+  "rezervace.legend.free": { cs: "Volno", en: "Free", de: "Frei", pl: "Wolne" },
+  "rezervace.legend.selection": { cs: "Váš výběr", en: "Your selection", de: "Ihre Auswahl", pl: "Twój wybór" },
+  "rezervace.price.summary": { cs: "Sazby a údaje pro výpočet ceny", en: "Rates and data for price calculation", de: "Tarife und Daten zur Preisberechnung", pl: "Stawki i dane do obliczenia ceny" },
+  "rezervace.price.note": { cs: "Vratná kauce: 25 000 Kč · Servisní poplatek: 1 500 Kč · Nájezd: bez limitu · Všechny ceny jsou včetně DPH", en: "Refundable deposit: 25,000 CZK · Service fee: 1,500 CZK · Mileage: unlimited · All prices include VAT", de: "Rückzahlbare Kaution: 25.000 CZK · Servicegebühr: 1.500 CZK · Fahrleistung: unbegrenzt · Alle Preise inkl. MwSt.", pl: "Zwracalna kaucja: 25 000 CZK · Opłata serwisowa: 1 500 CZK · Przebieg: bez limitu · Wszystkie ceny zawierają VAT" },
+
+  // Reservation form labels and buttons
+  "rezervace.step2.title": { cs: "2. Vaše poptávka", en: "2. Your request", de: "2. Ihre Anfrage", pl: "2. Twoje zapytanie" },
+  "form.label.dateFrom": { cs: "Převzetí (první den)", en: "Pick-up (first day)", de: "Abholung (erster Tag)", pl: "Odbiór (pierwszy dzień)" },
+  "form.label.dateTo": { cs: "Vrácení (poslední den)", en: "Return (last day)", de: "Rückgabe (letzter Tag)", pl: "Zwrot (ostatni dzień)" },
+  "form.label.guests": { cs: "Počet osob", en: "Number of people", de: "Anzahl Personen", pl: "Liczba osób" },
+  "form.label.name": { cs: "Jméno a příjmení", en: "Full name", de: "Name und Nachname", pl: "Imię i nazwisko" },
+  "form.label.phone": { cs: "Telefon", en: "Phone", de: "Telefon", pl: "Telefon" },
+  "form.label.email": { cs: "E-mail", en: "E-mail", de: "E-Mail", pl: "E-mail" },
+  "form.extras.legend": { cs: "Doplňkové položky (jednorázově)", en: "Additional items (one-off)", de: "Zusatzartikel (einmalig)", pl: "Dodatki (jednorazowo)" },
+  "extras.scooter.label": { cs: "Koloběžka", en: "Scooter", de: "Tretroller", pl: "Hulajnoga" },
+  "extras.dog.label": { cs: "Pes", en: "Dog", de: "Hund", pl: "Pies" },
+  "extras.cat.label": { cs: "Kočka", en: "Cat", de: "Katze", pl: "Kot" },
+  "form.note.label": { cs: "Poznámka (nepovinné)", en: "Note (optional)", de: "Anmerkung (optional)", pl: "Notatka (opcjonalnie)" },
+  "form.note.placeholder": { cs: "Kam plánujete vyrazit, dotazy…", en: "Where are you planning to go, questions…", de: "Wohin möchten Sie fahren, Fragen…", pl: "Dokąd planujesz jechać, pytania…" },
+  "form.submit": { cs: "Odeslat poptávku e-mailem", en: "Send request by e-mail", de: "Anfrage per E-Mail senden", pl: "Wyślij zapytanie e-mailem" },
+  "form.summary.note": { cs: "Poptávka je nezávazná. Rezervace je platná až po našem potvrzení, které pošleme nejpozději do 24 hodin.", en: "The request is non-binding. The reservation is valid only after our confirmation, which we will send within 24 hours.", de: "Die Anfrage ist unverbindlich. Die Reservierung ist erst nach unserer Bestätigung gültig, die wir innerhalb von 24 Stunden senden.", pl: "Zapytanie jest niezobowiązujące. Rezerwacja jest ważna dopiero po naszym potwierdzeniu, które wyślemy w ciągu 24 godzin." },
+
+  // Steps (how it works)
+  "steps.step1.title": { cs: "Vyberete vůz", en: "You choose the vehicle", de: "Sie wählen das Fahrzeug", pl: "Wybierasz pojazd" },
+  "steps.step1.text": { cs: "Carado A 464.", en: "Carado A 464.", de: "Carado A 464.", pl: "Carado A 464." },
+  "steps.step2.title": { cs: "Zvolíte termín", en: "You pick a date", de: "Sie wählen einen Termin", pl: "Wybierasz termin" },
+  "steps.step2.text": { cs: "Podle kalendáře obsazenosti.", en: "Using the availability calendar.", de: "Anhand des Belegungskalenders.", pl: "Według kalendarza dostępności." },
+  "steps.step3.title": { cs: "Vyplníte údaje", en: "You fill in your details", de: "Sie füllen Ihre Daten aus", pl: "Wypełniasz dane" },
+  "steps.step3.text": { cs: "Jméno, telefon a e-mail.", en: "Name, phone and e-mail.", de: "Name, Telefon und E-Mail.", pl: "Imię, telefon i e-mail." },
+  "steps.step4.title": { cs: "Odešlete poptávku", en: "Send the request", de: "Senden Sie die Anfrage", pl: "Wyślij zapytanie" },
+  "steps.step4.text": { cs: "Dorazí nám e-mailem.", en: "It arrives to us by e-mail.", de: "Die Anfrage erreicht uns per E-Mail.", pl: "Dotarcie do nas e-mailem." },
+  "steps.step5.title": { cs: "Potvrdíme", en: "We confirm", de: "Wir bestätigen", pl: "Potwierdzimy" },
+  "steps.step5.text": { cs: "Zašleme zálohu a pokyny.", en: "We will send deposit instructions and details.", de: "Wir senden Anweisungen und Details.", pl: "Wyślemy zaliczkę i instrukcje." },
+
+  // Kontakt page / contact form
+  "kontakt.card.phone": { cs: "Telefon", en: "Phone", de: "Telefon", pl: "Telefon" },
+  "kontakt.card.email": { cs: "E-mail", en: "E-mail", de: "E-Mail", pl: "E-mail" },
+  "kontakt.form.title": { cs: "Napište nám", en: "Write to us", de: "Schreiben Sie uns", pl: "Napisz do nas" },
+  "kontakt.form.name": { cs: "Jméno", en: "Name", de: "Name", pl: "Imię" },
+  "kontakt.form.phone": { cs: "Telefon (nepovinné)", en: "Phone (optional)", de: "Telefon (optional)", pl: "Telefon (opcjonalnie)" },
+  "kontakt.form.email": { cs: "E-mail", en: "E-mail", de: "E-Mail", pl: "E-mail" },
+  "kontakt.form.message": { cs: "Zpráva", en: "Message", de: "Nachricht", pl: "Wiadomość" },
+  "kontakt.form.submit": { cs: "Odeslat zprávu", en: "Send message", de: "Nachricht senden", pl: "Wyślij wiadomość" },
+  "kontakt.note": { cs: "Po kliknutí se otevře váš e-mailový program s předvyplněnou zprávou.", en: "Clicking will open your e-mail client with a pre-filled message.", de: "Durch Klicken öffnet sich Ihr E-Mail-Programm mit einer vorausgefüllten Nachricht.", pl: "Po kliknięciu otworzy się Twój program pocztowy z wstępnie wypełnioną wiadomością." },
+  "kontakt.map.note": { cs: "Místo převzetí a vrácení vozu. Přesný postup vám pošleme po potvrzení rezervace.", en: "Pick-up and return location. We will send exact instructions after confirming your reservation.", de: "Abhol- und Rückgabeort. Die genauen Anweisungen senden wir nach Bestätigung der Reservierung.", pl: "Miejsce odbioru i zwrotu pojazdu. Dokładne instrukcje prześlemy po potwierdzeniu rezerwacji." },
+
+  // Ceník: section headings and table rows
+  "cenik.rates.eyebrow": { cs: "Sazby", en: "Rates", de: "Tarife", pl: "Stawki" },
+  "cenik.rates.title": { cs: "Cena pronájmu za den", en: "Rental price per day", de: "Mietpreis pro Tag", pl: "Cena wynajmu za dzień" },
+  "cenik.table.discount11": { cs: "Sleva od 11 dní pronájmu", en: "Discount from 11 days rental", de: "Rabatt ab 11 Tagen Mietdauer", pl: "Zniżka od 11 dni wynajmu" },
+  "cenik.table.discount21": { cs: "Sleva od 21 dní pronájmu", en: "Discount from 21 days rental", de: "Rabatt ab 21 Tagen Mietdauer", pl: "Zniżka od 21 dni wynajmu" },
+
+  // Extras section
+  "cenik.extras.lead": { cs: "Položky, které si můžete k pronájmu domluvit.", en: "Items you can arrange for the rental.", de: "Posten, die Sie zur Miete dazubuchen können.", pl: "Pozycje, które możesz uzgodnić przy wynajmie." },
+  "cenik.extras.table.item": { cs: "Položka", en: "Item", de: "Posten", pl: "Pozycja" },
+  "cenik.extras.table.charge": { cs: "Účtuje se", en: "Charged", de: "Berechnet als", pl: "Naliczane jako" }
 };
 
 (function () {

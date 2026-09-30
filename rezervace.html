@@ -43,8 +43,8 @@
 
         <!-- KALENDÁŘ -->
         <div class="panel">
-          <h2 style="font-size:1.5rem">1. Kalendář obsazenosti</h2>
-          <p class="muted">Obsazené dny jsou v kalendáři modré. Klikněte na den převzetí a poté na den vrácení, termín se sám doplní do poptávky.</p>
+          <h2 style="font-size:1.5rem" data-i18n="rezervace.step1.title">1. Kalendář obsazenosti</h2>
+          <p class="muted" data-i18n="rezervace.calendar.info">Obsazené dny jsou v kalendáři modré. Klikněte na den převzetí a poté na den vrácení, termín se sám doplní do poptávky.</p>
           <!-- Vložte ID Google Kalendáře do data-calendar-id (Nastavení kalendáře → Integrovat kalendář). Kalendář musí být veřejný. -->
           <div id="calBox" data-calendar-id=""></div>
           <div class="legend">
@@ -53,7 +53,7 @@
             <span><i style="background:#2f9e44"></i>Váš výběr</span>
           </div>
           <details class="price-data">
-            <summary>Sazby a údaje pro výpočet ceny</summary>
+            <summary data-i18n="rezervace.price.summary">Sazby a údaje pro výpočet ceny</summary>
             <!--
               SAZBY PRO KALKULAČKU (upravujete přímo zde):
               - Pronájem se počítá na DNY: den převzetí i den vrácení se počítají (25. 9. – 28. 9. = 4 dny).
@@ -68,7 +68,7 @@
             -->
             <div class="table-wrap">
               <table id="priceTable">
-                <thead><tr><th>Sezóna</th><th>Období</th><th>Min. dní</th><th>Cena / den</th></tr></thead>
+                <thead><tr><th data-i18n="cenik.table.season">Sezóna</th><th data-i18n="cenik.table.period">Období</th><th data-i18n="cenik.table.min">Min. dní</th><th data-i18n="cenik.table.price">Cena / den</th></tr></thead>
                 <tbody>
                 <tr data-ranges="07-01/08-31"><td>Hlavní sezóna</td><td>červenec – srpen</td><td>5</td><td>4 790 Kč</td></tr>
                 <tr data-ranges="06-01/06-30"><td>Červen</td><td>červen</td><td>2</td><td>4 590 Kč</td></tr>
@@ -77,8 +77,8 @@
                 <tr data-ranges="default"><td>Zima</td><td>listopad, 1.–22. 12., leden</td><td>2</td><td>3 090 Kč</td></tr>
                 </tbody>
                 <tbody>
-                <tr data-from="11"><td colspan="3">Sleva od 11 dní pronájmu</td><td>10 %</td></tr>
-                <tr data-from="21"><td colspan="3">Sleva od 21 dní pronájmu</td><td>15 %</td></tr>
+                <tr data-from="11"><td colspan="3" data-i18n="cenik.table.discount11">Sleva od 11 dní pronájmu</td><td>10 %</td></tr>
+                <tr data-from="21"><td colspan="3" data-i18n="cenik.table.discount21">Sleva od 21 dní pronájmu</td><td>15 %</td></tr>
                 </tbody>
               </table>
             </div>
