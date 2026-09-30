@@ -42,12 +42,12 @@
       <div class="grid g4">
         <div class="contact-card panel">
           <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z"/></svg></span>
-          <h3>Telefon</h3>
+          <h3 data-i18n="kontakt.card.phone">Telefon</h3>
           <a href="tel:+420777970095">+420 777 97 00 95</a>
         </div>
         <div class="contact-card panel">
           <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18v12H3zM3 7l9 6 9-6"/></svg></span>
-          <h3>E-mail</h3>
+          <h3 data-i18n="kontakt.card.email">E-mail</h3>
           <a href="mailto:f.motycka@seznam.cz">f.motycka@seznam.cz</a>
         </div>
         <div class="contact-card panel">
@@ -68,22 +68,22 @@
     <div class="wrap">
       <div class="grid g2" style="align-items:start">
         <div class="panel">
-          <h2 style="font-size:1.5rem">Napište nám</h2>
+          <h2 style="font-size:1.5rem" data-i18n="kontakt.form.title">Napište nám</h2>
           <form id="contactForm" data-owner-email="f.motycka@seznam.cz">
             <div class="row2">
-              <div><label for="cname">Jméno</label><input id="cname" name="name" autocomplete="name" required></div>
-              <div><label for="cphone">Telefon (nepovinné)</label><input id="cphone" name="phone" type="tel" autocomplete="tel"></div>
+              <div><label for="cname" data-i18n="kontakt.form.name">Jméno</label><input id="cname" name="name" autocomplete="name" required></div>
+              <div><label for="cphone" data-i18n="kontakt.form.phone">Telefon (nepovinné)</label><input id="cphone" name="phone" type="tel" autocomplete="tel"></div>
             </div>
-            <div><label for="cemail">E-mail</label><input id="cemail" name="email" type="email" autocomplete="email" required></div>
-            <div><label for="cmsg">Zpráva</label><textarea id="cmsg" name="message" required></textarea></div>
-            <button class="btn block" type="submit">Odeslat zprávu</button>
-            <p class="note" style="margin:0">Po kliknutí se otevře váš e-mailový program s předvyplněnou zprávou.</p>
+            <div><label for="cemail" data-i18n="kontakt.form.email">E-mail</label><input id="cemail" name="email" type="email" autocomplete="email" required></div>
+            <div><label for="cmsg" data-i18n="kontakt.form.message">Zpráva</label><textarea id="cmsg" name="message" required></textarea></div>
+            <button class="btn block" type="submit" data-i18n="kontakt.form.submit">Odeslat zprávu</button>
+            <p class="note" style="margin:0" data-i18n="kontakt.note">Po kliknutí se otevře váš e-mailový program s předvyplněnou zprávou.</p>
           </form>
         </div>
         <div>
           <!-- MAPA: místo převzetí. Změníte v adrese za "q=" (název ulice a město). -->
           <iframe id="map" class="map" src="https://maps.google.com/maps?q=Praha%204%20-%20Bran%C3%ADk%2C%20147%2000&amp;hl=cs&amp;z=14&amp;output=embed" title="Mapa – místo převzetí vozu" loading="lazy"></iframe>
-          <p class="note">Místo převzetí a vrácení vozu. Přesný postup vám pošleme po potvrzení rezervace.</p>
+          <p class="note" data-i18n="kontakt.map.note">Místo převzetí a vrácení vozu. Přesný postup vám pošleme po potvrzení rezervace.</p>
         </div>
       </div>
     </div>
