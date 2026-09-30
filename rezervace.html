@@ -92,13 +92,14 @@
             <h2 style="font-size:1.5rem">2. Vaše poptávka</h2>
             <!--
               NASTAVENÍ FORMULÁŘE (upravujete v atributech data-… níže):
-              data-owner-email  = e-mail, kam se poptávka odešle (odesílá se sama přes službu FormSubmit)
+              data-owner-email  = e-mail, kam se poptávka odešle (odesílá se sama přes službu Web3Forms)
               data-owner-phone  = telefon zobrazený při chybě odeslání a v potvrzení pro zákazníka
+              data-access-key   = Access Key ze služby https://web3forms.com (zdarma, bez nutnosti potvrzovat aktivační e-mail).
+                                  Založíte na web3forms.com zadáním e-mailu data-owner-email, klíč přijde ihned na e-mail.
               data-api-url      = adresa rezervačního backendu (Google Apps Script Web App, postup: NAVOD-REZERVACE.md).
-                                  Je-li vyplněná, kontroluje se obsazenost a poptávky chodí přes backend (FormSubmit se nepoužije).
-                                  Je-li prázdná, formulář se odesílá záložním způsobem přes FormSubmit.
-              data-autoresponse = text automatického potvrzení pro zákazníka (jen záložní režim FormSubmit)
-              Při úplně první odeslané poptávce přijde na data-owner-email aktivační e-mail od FormSubmit – potvrďte ho (postup: NAVOD-EMAIL.md).
+                                  Je-li vyplněná, kontroluje se obsazenost a poptávky chodí přes backend (Web3Forms se nepoužije).
+                                  Je-li prázdná, formulář se odesílá záložním způsobem přes Web3Forms.
+              data-autoresponse = text automatického potvrzení pro zákazníka (jen záložní režim Web3Forms)
             -->
             <!--
               MÍSTO PRO GOOGLE FORMULÁŘ (volitelné):
@@ -118,6 +119,7 @@
               data-vehicle="Carado A 464"
               data-owner-email="f.motycka@seznam.cz"
               data-owner-phone="+420 777 97 00 95"
+              data-access-key="faaf9da8-8a22-444e-a782-af08c1c1ed9d"
               data-api-url=""
               data-autoresponse="Dobrý den, děkujeme za vaši poptávku, dorazila k nám v pořádku. Nejpozději do 24 hodin vám ji potvrdíme. Kdyby cokoli, ozvěte se na telefon +420 777 97 00 95. S pozdravem Obytňák Vysočina">
               <div class="row2">

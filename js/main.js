@@ -189,14 +189,17 @@ const checkPhone = v => {
   return "";
 };
 
-/* ---------- Odeslání poptávky e-mailem přes FormSubmit (bez registrace) ---------- */
-function sendInquiry(ownerEmail, fields) {
-  return fetch("https://formsubmit.co/ajax/" + ownerEmail, {
+/* ---------- Odeslání poptávky e-mailem přes Web3Forms (bez registrace, zdarma) ----------
+   Návod: na https://web3forms.com zdarma vygenerujete "Access Key" (stačí zadat e-mail,
+   klíč přijde ihned, žádná aktivace jako u FormSubmit). Klíč se vloží do atributu
+   data-access-key ve formuláři (rezervace.html / kontakt.html). ---------- */
+function sendInquiry(accessKey, ownerEmail, fields) {
+  return fetch("https://api.web3forms.com/submit", {
     method: "POST",
     headers: { "Content-Type": "application/json", Accept: "application/json" },
-    body: JSON.stringify(fields),
+    body: JSON.stringify({ access_key: accessKey, email: ownerEmail, ...fields }),
   }).then(res => res.json().catch(() => ({})).then(data => {
-    if (!res.ok || data.success === "false" || data.success === false) throw new Error((data && data.message) || "Odeslání se nezdařilo");
+    if (!res.ok || !data.success) throw new Error((data && data.message) || "Odeslání se nezdařilo");
     return data;
   }));
 }
@@ -294,7 +297,7 @@ function initReservation() {
   const form = $("#resForm");
   if (!form) return;
   const d = form.dataset;
-  const OWNER = { brand: d.brand, vehicle: d.vehicle, email: d.ownerEmail, phone: d.ownerPhone };
+  const OWNER = { brand: d.brand, vehicle: d.vehicle, email: d.ownerEmail, phone: d.ownerPhone, accessKey: d.accessKey };
   const P = readPrices();
 
   // Adresa Google Apps Script Web App (data-api-url). Je-li vyplněná, používá se nový rezervační systém
@@ -468,9 +471,9 @@ function initReservation() {
 
     // Poptávka se odešle sama na e-mail majitele, zákazník dostane automatické potvrzení
     const fields = {
-      _subject: subject,
-      _template: "table",
-      _captcha: "false",
+      subject: subject,
+      from_name: f.name.value.trim(),
+      replyto: custEmail,
       name: f.name.value.trim(),
       email: custEmail,
       "Telefon": f.phone.value.trim(),
@@ -483,11 +486,11 @@ function initReservation() {
       "Poznámka": f.note.value.trim() || "–",
       "Přidat do Google Kalendáře": calUrl,
     };
-    if (d.autoresponse) fields._autoresponse = d.autoresponse;
+    if (d.autoresponse) { fields.autoresponse = "1"; fields.autoresponse_message = d.autoresponse; }
 
     const btn = $("button[type=submit]", form), btnText = btn.textContent;
     btn.disabled = true; btn.textContent = "Odesílám…";
-    sendInquiry(OWNER.email, fields)
+    sendInquiry(OWNER.accessKey, OWNER.email, fields)
       .then(() => {
         const done = $("#sent");
         done.className = "info-box";
