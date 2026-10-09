@@ -1,0 +1,1010 @@
+﻿<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Inzeráty – interní podklady (Facebook a Bazoš)</title>
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+  <meta name="description" content="Interní stránka s připravenými texty inzerátů.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="src/logo.png">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .ad-page { padding: 32px 0 80px; }
+    .badge-private {
+      display:inline-flex; align-items:center; gap:7px; font-size:.78rem; font-weight:600;
+      letter-spacing:.06em; text-transform:uppercase; color:#8a3b12;
+      background:#fdeadd; border:1px solid #f3c6a6; padding:6px 13px; border-radius:999px;
+    }
+    .tabs { display:flex; gap:10px; flex-wrap:wrap; margin:28px 0 8px; }
+    .tab {
+      padding:12px 24px; border-radius:999px; border:2px solid var(--line);
+      background:#fff; font:inherit; font-weight:600; color:var(--ink-soft); cursor:pointer;
+      transition:background .2s, color .2s, border-color .2s;
+    }
+    .tab:hover { border-color:var(--green); color:var(--green-dark); }
+    .tab[aria-selected="true"] { background:var(--green); border-color:var(--green); color:#fff; }
+    .panel-note {
+      background:var(--bg-alt); border:1px solid var(--line); border-radius:var(--radius-sm);
+      padding:16px 20px; margin:20px 0 32px; color:var(--ink-soft); font-size:.94rem;
+    }
+    .panel-note strong { color:var(--ink); }
+
+    .ad {
+      border:1px solid var(--line); border-radius:var(--radius); background:#fff;
+      box-shadow:var(--shadow-sm); overflow:hidden; margin-bottom:34px;
+    }
+    .ad-head {
+      display:flex; justify-content:space-between; align-items:flex-start; gap:16px;
+      flex-wrap:wrap; padding:20px 24px; background:var(--bg-alt); border-bottom:1px solid var(--line);
+    }
+    .ad-head h3 { margin:0 0 4px; font-size:1.1rem; }
+    .ad-head .tagline { color:var(--ink-soft); font-size:.88rem; margin:0; }
+    .ad-actions { display:flex; gap:8px; flex-wrap:wrap; }
+    .btn-mini {
+      padding:9px 16px; border-radius:999px; border:2px solid var(--green);
+      background:var(--green); color:#fff; font:inherit; font-size:.85rem; font-weight:600;
+      cursor:pointer; transition:background .2s, border-color .2s;
+    }
+    .btn-mini:hover { background:var(--green-dark); border-color:var(--green-dark); }
+    .btn-mini.ghost { background:transparent; color:var(--green-dark); }
+    .btn-mini.ghost:hover { background:#fff; }
+    .btn-mini.done { background:#2e7d32; border-color:#2e7d32; color:#fff; }
+
+    .ad-body { padding:24px; }
+    .field-label {
+      font-size:.75rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase;
+      color:var(--green-dark); margin:0 0 8px;
+    }
+    .field-label.spaced { margin-top:26px; }
+    .ad-title-box {
+      border:1px solid var(--line); border-radius:var(--radius-sm); background:var(--bg-alt);
+      padding:13px 16px; font-weight:600; line-height:1.45;
+    }
+    .ad-text {
+      border:1px solid var(--line); border-radius:var(--radius-sm); padding:18px 20px;
+      white-space:pre-wrap; line-height:1.65; font-size:.96rem; margin:0;
+      font-family:inherit; background:#fff;
+    }
+    .meta-row { display:flex; gap:10px; flex-wrap:wrap; margin-top:20px; }
+    .chip {
+      font-size:.8rem; background:var(--bg-alt); border:1px solid var(--line);
+      border-radius:999px; padding:6px 14px; color:var(--ink-soft);
+    }
+    .chip b { color:var(--ink); font-weight:600; }
+
+    .photos { display:grid; grid-template-columns:repeat(auto-fill, minmax(150px, 1fr)); gap:12px; margin-top:10px; }
+    .photos figure { margin:0; border:1px solid var(--line); border-radius:var(--radius-sm); overflow:hidden; background:var(--bg-alt); }
+    .photos img { width:100%; height:112px; object-fit:cover; }
+    .photos figcaption { padding:8px 11px; font-size:.76rem; color:var(--ink-soft); line-height:1.35; }
+    .photos .order { display:inline-block; font-weight:700; color:var(--green-dark); }
+
+    /* Aktuální inzerát na konkrétní termín – vizuálně odlišený */
+    .ad.live { border-color:#c9762b; border-width:2px; }
+    .ad.live .ad-head { background:#fdf1e3; }
+    .badge-live {
+      display:inline-flex; align-items:center; gap:6px; font-size:.72rem; font-weight:700;
+      letter-spacing:.07em; text-transform:uppercase; color:#fff; background:#c0392b;
+      padding:4px 11px; border-radius:999px; margin-bottom:8px;
+    }
+
+    .toast {
+      position:fixed; left:50%; bottom:28px; transform:translateX(-50%) translateY(16px);
+      background:var(--footer); color:#fff; padding:12px 24px; border-radius:999px;
+      font-size:.9rem; font-weight:500; box-shadow:var(--shadow); opacity:0;
+      transition:opacity .22s, transform .22s; pointer-events:none; z-index:99;
+    }
+    .toast.show { opacity:1; transform:translateX(-50%) translateY(0); }
+
+    @media print {
+      .tabs, .ad-actions, .site-header, .toast, .no-print { display:none !important; }
+      .panel[hidden] { display:block !important; }
+      .ad { break-inside:avoid; box-shadow:none; }
+    }
+  </style>
+</head>
+<body data-page="inzeraty">
+  <header class="site-header">
+    <div class="wrap">
+      <a class="logo" href="index.html" aria-label="Obytňák Vysočina – úvodní stránka">
+        <img src="src/logo.png" alt="Obytňák Vysočina" width="56" height="56">
+        <span class="logo-text">Inzeráty – interní podklady</span>
+      </a>
+    </div>
+  </header>
+
+  <main class="wrap ad-page">
+    <span class="badge-private">Neveřejná stránka – jen přes přímý odkaz</span>
+    <h1 style="margin:14px 0 6px">Připravené inzeráty</h1>
+    <p class="muted" style="max-width:740px">
+      Šest variant inzerátu pro Facebook a šest pro Bazoš, včetně aktuální nabídky na poslední volný termín 28.&nbsp;10. Texty jsou hotové k vložení –
+      tlačítkem <b>Kopírovat text</b> si je přenesete do schránky, u každé varianty je
+      doporučené pořadí fotek. Stránka není v menu ani v patičce a je označená
+      <code>noindex</code>, takže ji vyhledávače nenabídnou.
+    </p>
+
+    <div class="tabs" role="tablist" aria-label="Platformy">
+      <button class="tab" id="tab-fb" role="tab" aria-selected="true" aria-controls="panel-fb">Facebook (6 inzerátů)</button>
+      <button class="tab" id="tab-bazos" role="tab" aria-selected="false" aria-controls="panel-bazos">Bazoš (6 inzerátů)</button>
+    </div>
+
+    <!-- ===================== FACEBOOK ===================== -->
+    <section class="panel" id="panel-fb" role="tabpanel" aria-labelledby="tab-fb">
+      <div class="panel-note">
+        <strong>Jak na Facebook:</strong> varianty 1–3 jsou pro <b>Marketplace</b>
+        (kategorie Vozidla → Obytné vozy, případně Pronájem), varianty 4–6 jako <b>post na profil
+        a do skupin</b> (karavanové a cestovatelské skupiny, lokální skupiny Praha a Vysočina).
+        Marketplace neumí formátování – emoji ano, odrážky jsou proto řešené pomlčkami.
+        Fotky nahrávejte v uvedeném pořadí, první je náhledová.
+      </div>
+
+      <!-- FB 1 -->
+      <article class="ad">
+        <div class="ad-head">
+          <div>
+            <h3>FB 1 – Marketplace, hlavní inzerát</h3>
+            <p class="tagline">Univerzální text pro celou sezónu. Nejdelší, nejvíc informací.</p>
+          </div>
+          <div class="ad-actions">
+            <button class="btn-mini" data-copy="fb1">Kopírovat text</button>
+            <button class="btn-mini ghost" data-copy-title="fb1-title">Kopírovat titulek</button>
+          </div>
+        </div>
+        <div class="ad-body">
+          <p class="field-label">Titulek</p>
+          <div class="ad-title-box" id="fb1-title">Pronájem obytného vozu Carado A 464 (2023) – 6 míst, řidičák B, Praha</div>
+
+          <p class="field-label spaced">Text inzerátu</p>
+          <pre class="ad-text" id="fb1">🚐 PRONÁJEM OBYTNÉHO VOZU CARADO A 464 (rok 2023)
+
+Půjčíme vám moderní alkovnový obytňák pro celou rodinu. Vůz je po servisu, pojištěný a připravený vyrazit – vy si jen sbalíte kufry.
+
+CO VÁS ČEKÁ
+- 6 míst k jízdě i ke spaní
+- Pevné lůžko vzadu – nemusíte každý večer nic stavět
+- Velká alkovna nad kabinou a rozkládací jídelní kout
+- Koupelna s oddělenou sprchou a WC
+- Kuchyň: vařič, dřez, prostorná lednice, hodně úložného místa
+- Topení Truma Combi 6 s 10l bojlerem – i na jaře a v zimě je teplo
+- Klimatizace Dometic FreshJet v obytné části, automatická v kabině
+- Solární panely a přídavná baterie – vydržíte i mimo kemp
+- Markýza s LED osvětlením, nosič na 4 kola, garáž s nosností 150 kg
+- ISOFIX pro dvě sedačky, parkovací kamera, tempomat
+
+ŘÍDÍ SE NA BĚŽNÝ ŘIDIČÁK
+Délka 7,24 m, manuální převodovka, stačí průkaz skupiny B. Řidič od 21 let.
+
+CENA ZA DEN (včetně DPH)
+- Zima (listopad, 1.–22. 12., leden): 3 090 Kč
+- Jaro, říjen a Vánoce: 3 790 Kč
+- Květen a září: 4 290 Kč
+- Červen: 4 590 Kč
+- Hlavní sezóna (červenec–srpen): 4 790 Kč
+
+V ceně je NEOMEZENÝ NÁJEZD, pojištění (povinné ručení i havarijní), dálniční známka a základní výbava. K pronájmu se účtuje jednorázový servisní poplatek 1 500 Kč. Od 11 dní sleva 10 %, od 21 dní sleva 15 %. Vratná kauce 25 000 Kč.
+
+Minimální délka pronájmu: 5 dní v hlavní sezóně, jinak 2 dny.
+
+DOBRÉ VĚDĚT
+- Převzetí od 14:00, vrácení do 10:00, součástí je podrobné zaškolení
+- Ve voze se nekouří
+- Psi a kočky vítáni (poplatek 1 000 Kč jednorázově)
+- Místo převzetí: Praha 4 – Braník
+
+Napište mi do zprávy termín, který vás zajímá, a obratem potvrdím, jestli je volný, a pošlu přesnou cenu.
+
+📞 +420 777 97 00 95
+✉️ f.motycka@seznam.cz</pre>
+
+          <div class="meta-row">
+            <span class="chip"><b>Kategorie:</b> Vozidla → Obytné vozy / Pronájem</span>
+            <span class="chip"><b>Lokalita:</b> Praha 4 – Braník</span>
+            <span class="chip"><b>Cena v inzerátu:</b> 3 090 Kč (od, za den)</span>
+          </div>
+
+          <p class="field-label spaced">Doporučené fotky a pořadí</p>
+          <div class="photos">
+            <figure><img src="src/carado-a464-ext-predek.jpg" alt="Carado A 464 zepředu" loading="lazy"><figcaption><span class="order">1.</span> Pohled zepředu – náhledová fotka</figcaption></figure>
+            <figure><img src="src/carado-a464-ext-bok.jpg" alt="Carado A 464 z boku" loading="lazy"><figcaption><span class="order">2.</span> Celek z boku</figcaption></figure>
+            <figure><img src="src/carado-a464-int-celkovy-pohled.jpg" alt="Interiér celkový pohled" loading="lazy"><figcaption><span class="order">3.</span> Interiér celkově</figcaption></figure>
+            <figure><img src="src/carado-a464-int-kuchyn.jpg" alt="Kuchyňský kout" loading="lazy"><figcaption><span class="order">4.</span> Kuchyň</figcaption></figure>
+            <figure><img src="src/carado-a464-int-loznice.jpg" alt="Ložnice" loading="lazy"><figcaption><span class="order">5.</span> Pevné lůžko vzadu</figcaption></figure>
+            <figure><img src="src/carado-a464-int-koupelna.jpg" alt="Koupelna" loading="lazy"><figcaption><span class="order">6.</span> Koupelna se sprchou</figcaption></figure>
+            <figure><img src="src/carado-a464-int-kabina.jpg" alt="Kabina řidiče" loading="lazy"><figcaption><span class="order">7.</span> Kabina řidiče</figcaption></figure>
+            <figure><img src="src/pudorys-carado-a464.jpg" alt="Půdorys vozu" loading="lazy"><figcaption><span class="order">8.</span> Půdorys – dispozice</figcaption></figure>
+          </div>
+        </div>
+      </article>
+
+      <!-- FB 2 -->
+      <article class="ad">
+        <div class="ad-head">
+          <div>
+            <h3>FB 2 – Marketplace, krátká verze pro rodiny</h3>
+            <p class="tagline">Stručné, čtivé na mobilu. Míří na rodiny s dětmi a letní prázdniny.</p>
+          </div>
+          <div class="ad-actions">
+            <button class="btn-mini" data-copy="fb2">Kopírovat text</button>
+            <button class="btn-mini ghost" data-copy-title="fb2-title">Kopírovat titulek</button>
+          </div>
+        </div>
+        <div class="ad-body">
+          <p class="field-label">Titulek</p>
+          <div class="ad-title-box" id="fb2-title">Obytňák pro 6 osob k zapůjčení – Carado A 464, ISOFIX, sprcha a WC</div>
+
+          <p class="field-label spaced">Text inzerátu</p>
+          <pre class="ad-text" id="fb2">👨‍👩‍👧‍👦 OBYTNÝ VŮZ PRO 6 OSOB – DOVOLENÁ BEZ STAROSTÍ
+
+Carado A 464, rok výroby 2023. Alkovna, ve které se nikdo netlačí: vzadu pevné dvoulůžko, nad kabinou velká alkovna a jídelní kout se složí na další lůžko.
+
+PROČ SE RODINÁM HODÍ
+- 6 míst k jízdě, 6 ke spaní – nikdo nespí na zemi
+- ISOFIX pro dvě dětské sedačky
+- Vlastní koupelna se sprchou a WC – žádné noční výpravy po kempu
+- Lednice, vařič a dřez, takže se dá normálně vařit
+- Topení s bojlerem a teplá voda i mimo sezónu
+- Nosič na 4 kola a garáž na 150 kg – kola, koloběžky, kočárek
+- Markýza s LED světlem na posezení venku
+- Zatemnění oken a moskytiéry
+
+Stačí řidičák skupiny B, délka 7,24 m, manuál. Před odjezdem vás vším podrobně provedu, ať si sednete za volant v klidu.
+
+Cena od 3 090 Kč/den podle sezóny, v hlavní sezóně 4 790 Kč/den. V ceně neomezené kilometry, pojištění, dálniční známka a základní výbava. Servisní poplatek 1 500 Kč, vratná kauce 25 000 Kč. Pronájem od 11 dní má slevu 10 %.
+
+Psa nebo kočku vezměte s sebou – poplatek 1 000 Kč.
+
+Předání v Praze 4 – Braníku. Napište mi termín a pošlu vám přesnou cenu i potvrzení dostupnosti.
+
+📞 +420 777 97 00 95</pre>
+
+          <div class="meta-row">
+            <span class="chip"><b>Kategorie:</b> Vozidla → Obytné vozy / Pronájem</span>
+            <span class="chip"><b>Lokalita:</b> Praha 4 – Braník</span>
+            <span class="chip"><b>Cena v inzerátu:</b> 3 090 Kč (od, za den)</span>
+          </div>
+
+          <p class="field-label spaced">Doporučené fotky a pořadí</p>
+          <div class="photos">
+            <figure><img src="src/carado-a464-ext-priroda.jpg" alt="Obytný vůz v přírodě" loading="lazy"><figcaption><span class="order">1.</span> Vůz v přírodě – náhled, prodává atmosféru</figcaption></figure>
+            <figure><img src="src/carado-a464-int-celkovy-pohled.jpg" alt="Interiér celkový pohled" loading="lazy"><figcaption><span class="order">2.</span> Interiér celkově</figcaption></figure>
+            <figure><img src="src/carado-a464-int-loznice.jpg" alt="Ložnice" loading="lazy"><figcaption><span class="order">3.</span> Pevné lůžko vzadu</figcaption></figure>
+            <figure><img src="src/carado-a464-ext-predek-2.jpg" alt="Alkovna nad kabinou" loading="lazy"><figcaption><span class="order">4.</span> Alkovna nad kabinou</figcaption></figure>
+            <figure><img src="src/carado-a464-int-kuchyn.jpg" alt="Kuchyňský kout" loading="lazy"><figcaption><span class="order">5.</span> Kuchyň</figcaption></figure>
+            <figure><img src="src/carado-a464-int-koupelna.jpg" alt="Koupelna" loading="lazy"><figcaption><span class="order">6.</span> Koupelna</figcaption></figure>
+            <figure><img src="src/pudorys-carado-a464.jpg" alt="Půdorys vozu" loading="lazy"><figcaption><span class="order">7.</span> Půdorys – kde se spí</figcaption></figure>
+          </div>
+        </div>
+      </article>
+
+      <!-- FB 3 -->
+      <article class="ad">
+        <div class="ad-head">
+          <div>
+            <h3>FB 3 – Marketplace, mimosezónní nabídka</h3>
+            <p class="tagline">Na podzim a zimu, kdy je kalendář volnější. Hlavní argument je nízká cena.</p>
+          </div>
+          <div class="ad-actions">
+            <button class="btn-mini" data-copy="fb3">Kopírovat text</button>
+            <button class="btn-mini ghost" data-copy-title="fb3-title">Kopírovat titulek</button>
+          </div>
+        </div>
+        <div class="ad-body">
+          <p class="field-label">Titulek</p>
+          <div class="ad-title-box" id="fb3-title">Obytný vůz na podzim a zimu od 3 090 Kč/den – vytápěný, Carado A 464</div>
+
+          <p class="field-label spaced">Text inzerátu</p>
+          <pre class="ad-text" id="fb3">❄️ OBYTŇÁK MIMO SEZÓNU – OD 3 090 KČ/DEN
+
+Mimo prázdniny jsou kempy poloprázdné, hory bez front a ceny o třetinu nižší. Carado A 464 (2023) je na to vybavený: plynové topení Truma Combi 6 s 10l bojlerem, izolovaná odpadní nádrž a zatemnění oken. Vevnitř je teplo, i když venku mrzne.
+
+CENY ZA DEN
+- Listopad, 1.–22. 12. a leden: 3 090 Kč
+- Únor–duben, říjen a Vánoce (23.–31. 12.): 3 790 Kč
+- Minimální pronájem jen 2 dny
+
+Neomezený nájezd, pojištění, dálniční známka a základní výbava jsou v ceně. Servisní poplatek 1 500 Kč, vratná kauce 25 000 Kč.
+
+VE VOZE NAJDETE
+- 6 míst ke spaní: pevné lůžko vzadu, alkovna, rozkládací jídelní kout
+- Koupelnu s oddělenou sprchou a WC
+- Kuchyň s vařičem, dřezem a lednicí
+- Klimatizaci, solární panely a přídavnou baterii
+- Zásuvky 230 V, 12 V a USB
+- Garáž s nosností 150 kg a markýzu s LED osvětlením
+
+Řidičský průkaz skupiny B, délka 7,24 m, manuál. Zaškolení před odjezdem je samozřejmost.
+
+Víkend na horách, prodloužený advent nebo Silvestr v karavanu – napište termín a ozvu se s přesnou cenou.
+
+📍 Praha 4 – Braník
+📞 +420 777 97 00 95</pre>
+
+          <div class="meta-row">
+            <span class="chip"><b>Kategorie:</b> Vozidla → Obytné vozy / Pronájem</span>
+            <span class="chip"><b>Lokalita:</b> Praha 4 – Braník</span>
+            <span class="chip"><b>Cena v inzerátu:</b> 3 090 Kč (od, za den)</span>
+          </div>
+
+          <p class="field-label spaced">Doporučené fotky a pořadí</p>
+          <div class="photos">
+            <figure><img src="src/carado-a464-ext-bok-2.jpg" alt="Carado A 464 z boku" loading="lazy"><figcaption><span class="order">1.</span> Vůz z boku – náhled</figcaption></figure>
+            <figure><img src="src/Grossglockner-Hochalpenstrasse.webp" alt="Horská cesta Grossglockner" loading="lazy"><figcaption><span class="order">2.</span> Horská cesta – inspirace na trasu</figcaption></figure>
+            <figure><img src="src/carado-a464-int-celkovy-pohled.jpg" alt="Interiér celkový pohled" loading="lazy"><figcaption><span class="order">3.</span> Teplý interiér</figcaption></figure>
+            <figure><img src="src/carado-a464-int-kuchyn.jpg" alt="Kuchyňský kout" loading="lazy"><figcaption><span class="order">4.</span> Kuchyň</figcaption></figure>
+            <figure><img src="src/carado-a464-int-koupelna.jpg" alt="Koupelna" loading="lazy"><figcaption><span class="order">5.</span> Sprcha s teplou vodou</figcaption></figure>
+            <figure><img src="src/carado-a464-int-loznice.jpg" alt="Ložnice" loading="lazy"><figcaption><span class="order">6.</span> Pevné lůžko</figcaption></figure>
+          </div>
+        </div>
+      </article>
+
+      <!-- FB 4 -->
+      <article class="ad">
+        <div class="ad-head">
+          <div>
+            <h3>FB 4 – Post na profil a do skupin</h3>
+            <p class="tagline">Konverzační tón, hashtagy. Do karavanových a lokálních skupin.</p>
+          </div>
+          <div class="ad-actions">
+            <button class="btn-mini" data-copy="fb4">Kopírovat text</button>
+          </div>
+        </div>
+        <div class="ad-body">
+          <p class="field-label">Text postu</p>
+          <pre class="ad-text" id="fb4">Dobrý den, nabízím k zapůjčení náš obytný vůz 🚐
+
+Carado A 464 z roku 2023 – alkovna na podvozku Fiat Ducato, 6 míst k jízdě i ke spaní. Půjčujeme ho jen část roku, zbytek sezóny má volno, a bylo by škoda, aby stál.
+
+Vzadu je pevné lůžko, nad kabinou alkovna a jídelní kout se složí na třetí postel. Uprostřed kuchyň s lednicí a vařičem, koupelna má oddělenou sprchu a WC. Topení Truma s bojlerem, klimatizace, solární panely a přídavná baterie, takže den až dva vydržíte i bez kempu. Na kola je nosič pro čtyři, do garáže se vejde 150 kg.
+
+Jede se na obyčejný řidičák skupiny B, délka 7,24 m, manuální převodovka. Před prvním odjezdem si na vás vyhradím čas a vším vás provedu – kde se dolévá voda, jak se vypouští odpad, co dělat na kempu. Ještě nikdo se nevrátil s tím, že by to nezvládl 🙂
+
+Cena podle sezóny od 3 090 Kč do 4 790 Kč za den. V ceně neomezené kilometry, pojištění i dálniční známka. U delších pronájmů dávám slevu, od 11 dní 10 %, od 21 dní 15 %.
+
+Předání v Praze 4 – Braníku. Pes nebo kočka nejsou problém.
+
+Kdyby vás zajímal konkrétní termín, napište mi do komentáře nebo do zprávy a podívám se do kalendáře. Děkuju za případné sdílení! 🙏
+
+#obytnyvuz #karavan #pronajem #obytnak #dovolena #camping #carado #praha</pre>
+
+          <div class="meta-row">
+            <span class="chip"><b>Kam:</b> profil, stránka, karavanové a lokální skupiny</span>
+            <span class="chip"><b>Fotek v postu:</b> 4–5 (víc se v náhledu nezobrazí)</span>
+          </div>
+
+          <p class="field-label spaced">Doporučené fotky a pořadí</p>
+          <div class="photos">
+            <figure><img src="src/carado-a464-ext-priroda.jpg" alt="Obytný vůz v přírodě" loading="lazy"><figcaption><span class="order">1.</span> Vůz v přírodě</figcaption></figure>
+            <figure><img src="src/carado-a464-int-celkovy-pohled.jpg" alt="Interiér celkový pohled" loading="lazy"><figcaption><span class="order">2.</span> Interiér celkově</figcaption></figure>
+            <figure><img src="src/carado-a464-int-kuchyn.jpg" alt="Kuchyňský kout" loading="lazy"><figcaption><span class="order">3.</span> Kuchyň</figcaption></figure>
+            <figure><img src="src/carado-a464-int-loznice.jpg" alt="Ložnice" loading="lazy"><figcaption><span class="order">4.</span> Pevné lůžko vzadu</figcaption></figure>
+            <figure><img src="src/carado-a464-ext-predek.jpg" alt="Carado A 464 zepředu" loading="lazy"><figcaption><span class="order">5.</span> Pohled zepředu</figcaption></figure>
+          </div>
+        </div>
+      </article>
+
+      <!-- FB 5 -->
+      <article class="ad">
+        <div class="ad-head">
+          <div>
+            <h3>FB 5 – Krátký post na poslední volné termíny</h3>
+            <p class="tagline">Když chcete doplnit mezeru v kalendáři. Před zveřejněním doplňte data.</p>
+          </div>
+          <div class="ad-actions">
+            <button class="btn-mini" data-copy="fb5">Kopírovat text</button>
+          </div>
+        </div>
+        <div class="ad-body">
+          <div class="panel-note" style="margin-top:0">
+            <strong>Doplňte před zveřejněním:</strong> místo <code>[TERMÍN]</code> napište konkrétní data
+            (např. „18.–25. července“) a místo <code>[CENA]</code> celkovou cenu z kalkulačky na stránce Rezervace.
+          </div>
+
+          <p class="field-label">Text postu</p>
+          <pre class="ad-text" id="fb5">🚐 VOLNÝ TERMÍN: [TERMÍN]
+
+Náš obytňák Carado A 464 (2023) má volno a hledá posádku. Kdo si chce udělat dovolenou na kolech, má šanci.
+
+- 6 míst k jízdě i ke spaní, pevné lůžko vzadu a alkovna
+- Koupelna se sprchou a WC, kuchyň s lednicí a vařičem
+- Topení, klimatizace, solární panely, markýza, nosič na 4 kola
+- Řidičák skupiny B stačí, délka 7,24 m
+
+Cena za celý termín: [CENA] Kč včetně neomezených kilometrů, pojištění a dálniční známky.
+
+Předání Praha 4 – Braník. Zaškolení s vozem je součástí. Psi a kočky vítáni.
+
+Zájem? Napište zprávu 👇
+
+📞 +420 777 97 00 95</pre>
+
+          <div class="meta-row">
+            <span class="chip"><b>Kam:</b> profil, stránka, skupiny</span>
+            <span class="chip"><b>Fotek v postu:</b> 3</span>
+          </div>
+
+          <p class="field-label spaced">Doporučené fotky a pořadí</p>
+          <div class="photos">
+            <figure><img src="src/carado-a464-ext-predek-2.jpg" alt="Carado A 464 zepředu" loading="lazy"><figcaption><span class="order">1.</span> Vůz zepředu</figcaption></figure>
+            <figure><img src="src/carado-a464-int-celkovy-pohled.jpg" alt="Interiér celkový pohled" loading="lazy"><figcaption><span class="order">2.</span> Interiér</figcaption></figure>
+            <figure><img src="src/carado-a464-int-loznice.jpg" alt="Ložnice" loading="lazy"><figcaption><span class="order">3.</span> Lůžko</figcaption></figure>
+          </div>
+        </div>
+      </article>
+
+      <!-- FB 6 – AKTUÁLNÍ TERMÍN 28. 10. -->
+      <article class="ad live">
+        <div class="ad-head">
+          <div>
+            <span class="badge-live">Aktuální – poslední termín</span>
+            <h3>FB 6 – Prodloužený víkend 28. 10., poslední možnost</h3>
+            <p class="tagline">Konkrétní termín s cenou. Na Marketplace i jako post do skupin.</p>
+          </div>
+          <div class="ad-actions">
+            <button class="btn-mini" data-copy="fb6">Kopírovat text</button>
+            <button class="btn-mini ghost" data-copy-title="fb6-title">Kopírovat titulek</button>
+          </div>
+        </div>
+        <div class="ad-body">
+          <p class="field-label">Titulek</p>
+          <div class="ad-title-box" id="fb6-title">POSLEDNÍ TERMÍN: obytňák na prodloužený víkend 28. 10. – 1. 11.</div>
+
+          <p class="field-label spaced">Text inzerátu</p>
+          <pre class="ad-text" id="fb6">🚐 POSLEDNÍ VOLNÝ TERMÍN: 28. 10. – 1. 11.
+
+Prodloužený víkend na Den vzniku ČSR máme ještě volný – a je to letos poslední termín, který se dá rezervovat. Potom už kalendář do zimy nic nenabízí.
+
+Od středy 28. 10. (státní svátek) do nedělního večera 1. 11. Pět dní na podzimní cestu bez spěchu: Šumava, Jeseníky, rakouská jezera nebo třeba jen klidný kemp u lesa. V říjnu jsou kempy poloprázdné a výhledy nejlepší za celý rok.
+
+CARADO A 464 (2023)
+- 6 míst k jízdě i ke spaní
+- Pevné lůžko vzadu, velká alkovna nad kabinou, rozkládací jídelní kout
+- Koupelna s oddělenou sprchou a WC
+- Kuchyň s lednicí, vařičem a dřezem
+- Topení Truma Combi 6 s 10l bojlerem – na konci října nutnost, a máte ji
+- Klimatizace, solární panely s přídavnou baterií
+- Markýza s LED osvětlením, garáž na 150 kg, nosič na 4 kola
+- ISOFIX pro dvě sedačky, parkovací kamera, tempomat
+
+CENA ZA CELÝ TERMÍN: 19 750 Kč
+(5 dní: 4 dny × 3 790 Kč říjnová sazba + 1 den × 3 090 Kč listopadová + servisní poplatek 1 500 Kč)
+
+V ceně NEOMEZENÉ KILOMETRY, povinné ručení i havarijní pojištění, dálniční známka a základní výbava. Vratná kauce 25 000 Kč při převzetí.
+
+Řidičák skupiny B stačí, délka 7,24 m, manuál. Při předání vás celým vozem provedu, i když jedete karavanem poprvé.
+
+Převzetí 28. 10. od 14:00, vrácení 1. 11. do 10:00, Praha 4 – Braník. Ve voze se nekouří, psi a kočky za 1 000 Kč.
+
+Kdo napíše první a potvrdí zálohu, ten jede. 👇
+
+📞 +420 777 97 00 95
+✉️ f.motycka@seznam.cz</pre>
+
+          <div class="meta-row">
+            <span class="chip"><b>Termín:</b> 28. 10. – 1. 11. (5 dní)</span>
+            <span class="chip"><b>Cena:</b> 19 750 Kč celkem</span>
+            <span class="chip"><b>Kategorie:</b> Vozidla → Obytné vozy / Pronájem</span>
+            <span class="chip"><b>Lokalita:</b> Praha 4 – Braník</span>
+          </div>
+
+          <p class="field-label spaced">Doporučené fotky a pořadí</p>
+          <div class="photos">
+            <figure><img src="src/carado-a464-ext-priroda.jpg" alt="Obytný vůz v přírodě" loading="lazy"><figcaption><span class="order">1.</span> V přírodě – náhledová, podzimní nálada</figcaption></figure>
+            <figure><img src="src/carado-a464-int-celkovy-pohled.jpg" alt="Interiér celkový pohled" loading="lazy"><figcaption><span class="order">2.</span> Vytápěný interiér</figcaption></figure>
+            <figure><img src="src/carado-a464-int-loznice.jpg" alt="Ložnice" loading="lazy"><figcaption><span class="order">3.</span> Pevné lůžko vzadu</figcaption></figure>
+            <figure><img src="src/carado-a464-int-kuchyn.jpg" alt="Kuchyňský kout" loading="lazy"><figcaption><span class="order">4.</span> Kuchyň</figcaption></figure>
+            <figure><img src="src/carado-a464-ext-predek.jpg" alt="Carado A 464 zepředu" loading="lazy"><figcaption><span class="order">5.</span> Pohled zepředu</figcaption></figure>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- ===================== BAZOŠ ===================== -->
+    <section class="panel" id="panel-bazos" role="tabpanel" aria-labelledby="tab-bazos" hidden>
+      <div class="panel-note">
+        <strong>Jak na Bazoš:</strong> sekce <b>Auto → Karavany, obytné vozy</b> (případně
+        <b>Služby</b>). Bazoš neumí formátování a emoji nezobrazuje spolehlivě, proto jsou
+        tyhle texty bez emoji a s jednoduchými odrážkami. Titulek má limit okolo 60 znaků – u každé
+        varianty je dodržený. Do pole cena dejte denní sazbu, rozpis sezón je v textu.
+        Nahrát lze 10 fotek.
+      </div>
+
+      <!-- BZ 1 -->
+      <article class="ad">
+        <div class="ad-head">
+          <div>
+            <h3>BZ 1 – Hlavní inzerát, plný popis</h3>
+            <p class="tagline">Základní verze na celý rok. Obsahuje kompletní výbavu i ceník.</p>
+          </div>
+          <div class="ad-actions">
+            <button class="btn-mini" data-copy="bz1">Kopírovat text</button>
+            <button class="btn-mini ghost" data-copy-title="bz1-title">Kopírovat titulek</button>
+          </div>
+        </div>
+        <div class="ad-body">
+          <p class="field-label">Titulek (60 znaků)</p>
+          <div class="ad-title-box" id="bz1-title">Pronájem obytného vozu Carado A 464, 2023, 6 osob, řidičák B</div>
+
+          <p class="field-label spaced">Text inzerátu</p>
+          <pre class="ad-text" id="bz1">Pronajmu obytný vůz Carado A 464, rok výroby 2023, podvozek Fiat Ducato. Alkovnový vůz pro 6 osob, délka 7,24 m, manuální převodovka. Řídí se na řidičský průkaz skupiny B.
+
+DISPOZICE
+- 6 míst k jízdě, 6 míst ke spaní
+- Pevné lůžko vzadu (nemusí se každý večer skládat)
+- Velká alkovna nad kabinou
+- Rozkládací jídelní kout jako další lůžko
+- Koupelna s oddělenou sprchou a WC
+
+VÝBAVA OBYTNÉ ČÁSTI
+- Klimatizace Dometic FreshJet FJZ4 2200
+- Plynové topení Truma Combi 6 s 10l bojlerem
+- Izolovaná odpadní nádrž
+- Lednice, vařič, dřez
+- Zásuvky 230 V, 12 V a USB
+- Zatemnění oken, moskytiéry
+- Čalounění Arctica
+
+KABINA
+- Automatická klimatizace
+- Parkovací kamera a senzory
+- Tempomat, rádio
+- Airbag řidiče a spolujezdce, ABS, ESP
+- ISOFIX pro dvě dětské sedačky
+
+VENKU
+- Garáž s nosností 150 kg
+- Markýza s LED osvětlením
+- Solární panely a přídavná baterie
+- Nosič na 4 kola
+- Vyrovnávací klíny, hadice na vodu, prodlužovací kabel, základní nářadí
+
+CENA ZA DEN (včetně DPH)
+- Listopad, 1.-22. 12., leden: 3 090 Kč
+- Únor-duben, říjen, 23.-31. 12.: 3 790 Kč
+- Květen, září: 4 290 Kč
+- Červen: 4 590 Kč
+- Červenec, srpen: 4 790 Kč
+
+V ceně je neomezený nájezd kilometrů, povinné ručení i havarijní pojištění, dálniční známka a základní výbava. Jednorázový servisní poplatek 1 500 Kč. Sleva 10 % od 11 dní pronájmu, 15 % od 21 dní. Vratná kauce 25 000 Kč.
+
+Minimální délka pronájmu 5 dní v červenci a srpnu, v ostatních měsících 2 dny.
+
+PODMÍNKY
+- Řidič starší 21 let s platným průkazem skupiny B
+- Převzetí od 14:00, vrácení do 10:00
+- Vůz předávám čistý s plnou nádrží, ve stejném stavu ho vracíte
+- Při předání projdeme celý vůz a jeho obsluhu
+- Ve voze se nekouří
+- Pes nebo kočka za jednorázový poplatek 1 000 Kč
+- Odpadní vody a toaletu vypouštět jen na určených místech
+
+Místo převzetí: Praha 4 - Braník. Rezervace je platná po zaplacení zálohy, bezplatné storno do 30 dní před odjezdem.
+
+Volejte nebo pište, rád potvrdím dostupnost termínu a spočítám přesnou cenu.
+Telefon: 777 97 00 95
+E-mail: f.motycka@seznam.cz</pre>
+
+          <div class="meta-row">
+            <span class="chip"><b>Sekce:</b> Auto → Karavany, obytné vozy</span>
+            <span class="chip"><b>Lokalita:</b> Praha 4, PSČ 147 00</span>
+            <span class="chip"><b>Cena:</b> 3 090 Kč</span>
+          </div>
+
+          <p class="field-label spaced">Doporučené fotky a pořadí (max. 10)</p>
+          <div class="photos">
+            <figure><img src="src/carado-a464-ext-predek.jpg" alt="Carado A 464 zepředu" loading="lazy"><figcaption><span class="order">1.</span> Zepředu – náhledová</figcaption></figure>
+            <figure><img src="src/carado-a464-ext-bok.jpg" alt="Carado A 464 z boku" loading="lazy"><figcaption><span class="order">2.</span> Z boku</figcaption></figure>
+            <figure><img src="src/carado-a464-ext-cela.jpg" alt="Carado A 464 celkový pohled" loading="lazy"><figcaption><span class="order">3.</span> Celkový pohled</figcaption></figure>
+            <figure><img src="src/carado-a464-int-celkovy-pohled.jpg" alt="Interiér celkový pohled" loading="lazy"><figcaption><span class="order">4.</span> Interiér celkově</figcaption></figure>
+            <figure><img src="src/carado-a464-int-kuchyn.jpg" alt="Kuchyňský kout" loading="lazy"><figcaption><span class="order">5.</span> Kuchyň</figcaption></figure>
+            <figure><img src="src/carado-a464-int-loznice.jpg" alt="Ložnice" loading="lazy"><figcaption><span class="order">6.</span> Pevné lůžko</figcaption></figure>
+            <figure><img src="src/carado-a464-int-koupelna.jpg" alt="Koupelna" loading="lazy"><figcaption><span class="order">7.</span> Koupelna</figcaption></figure>
+            <figure><img src="src/carado-a464-int-kabina.jpg" alt="Kabina řidiče" loading="lazy"><figcaption><span class="order">8.</span> Kabina</figcaption></figure>
+            <figure><img src="src/carado-a464-int-kabina-zavesy.jpg" alt="Pohled do kabiny" loading="lazy"><figcaption><span class="order">9.</span> Pohled do kabiny</figcaption></figure>
+            <figure><img src="src/pudorys-carado-a464.jpg" alt="Půdorys vozu" loading="lazy"><figcaption><span class="order">10.</span> Půdorys</figcaption></figure>
+          </div>
+        </div>
+      </article>
+
+      <!-- BZ 2 -->
+      <article class="ad">
+        <div class="ad-head">
+          <div>
+            <h3>BZ 2 – Stručná verze</h3>
+            <p class="tagline">Krátký inzerát k opakovanému topování. Rychle se čte, snadno se udržuje.</p>
+          </div>
+          <div class="ad-actions">
+            <button class="btn-mini" data-copy="bz2">Kopírovat text</button>
+            <button class="btn-mini ghost" data-copy-title="bz2-title">Kopírovat titulek</button>
+          </div>
+        </div>
+        <div class="ad-body">
+          <p class="field-label">Titulek (51 znaků)</p>
+          <div class="ad-title-box" id="bz2-title">Obytné auto k zapůjčení 6 osob, Carado A 464, Praha</div>
+
+          <p class="field-label spaced">Text inzerátu</p>
+          <pre class="ad-text" id="bz2">Pronajmu obytný vůz Carado A 464 z roku 2023. Alkovna pro 6 osob, 6 míst ke spaní, délka 7,24 m, manuál, stačí řidičák skupiny B.
+
+Pevné lůžko vzadu, alkovna nad kabinou, rozkládací jídelní kout. Koupelna s oddělenou sprchou a WC, kuchyň s lednicí, vařičem a dřezem. Topení Truma s bojlerem, klimatizace, solární panely s přídavnou baterií. Markýza, garáž na 150 kg, nosič na 4 kola, ISOFIX, parkovací kamera.
+
+Cena 3 090 - 4 790 Kč za den podle sezóny. V ceně neomezené kilometry, pojištění, dálniční známka a základní výbava. Servisní poplatek 1 500 Kč, vratná kauce 25 000 Kč. Od 11 dní sleva 10 %, od 21 dní 15 %.
+
+Minimální pronájem 2 dny, v červenci a srpnu 5 dní. Ve voze se nekouří, zvířata po dohodě za 1 000 Kč. Zaškolení s vozem je součástí předání.
+
+Místo převzetí Praha 4 - Braník.
+
+Telefon: 777 97 00 95
+E-mail: f.motycka@seznam.cz</pre>
+
+          <div class="meta-row">
+            <span class="chip"><b>Sekce:</b> Auto → Karavany, obytné vozy</span>
+            <span class="chip"><b>Lokalita:</b> Praha 4, PSČ 147 00</span>
+            <span class="chip"><b>Cena:</b> 3 090 Kč</span>
+          </div>
+
+          <p class="field-label spaced">Doporučené fotky a pořadí</p>
+          <div class="photos">
+            <figure><img src="src/carado-a464-ext-bok.jpg" alt="Carado A 464 z boku" loading="lazy"><figcaption><span class="order">1.</span> Z boku – náhledová</figcaption></figure>
+            <figure><img src="src/carado-a464-ext-predek.jpg" alt="Carado A 464 zepředu" loading="lazy"><figcaption><span class="order">2.</span> Zepředu</figcaption></figure>
+            <figure><img src="src/carado-a464-int-celkovy-pohled.jpg" alt="Interiér celkový pohled" loading="lazy"><figcaption><span class="order">3.</span> Interiér</figcaption></figure>
+            <figure><img src="src/carado-a464-int-kuchyn.jpg" alt="Kuchyňský kout" loading="lazy"><figcaption><span class="order">4.</span> Kuchyň</figcaption></figure>
+            <figure><img src="src/carado-a464-int-loznice.jpg" alt="Ložnice" loading="lazy"><figcaption><span class="order">5.</span> Lůžko</figcaption></figure>
+            <figure><img src="src/carado-a464-int-koupelna.jpg" alt="Koupelna" loading="lazy"><figcaption><span class="order">6.</span> Koupelna</figcaption></figure>
+            <figure><img src="src/pudorys-carado-a464.jpg" alt="Půdorys vozu" loading="lazy"><figcaption><span class="order">7.</span> Půdorys</figcaption></figure>
+          </div>
+        </div>
+      </article>
+
+      <!-- BZ 3 -->
+      <article class="ad">
+        <div class="ad-head">
+          <div>
+            <h3>BZ 3 – Pro rodiny s dětmi, letní termíny</h3>
+            <p class="tagline">Vyzdvihuje ISOFIX, počet lůžek a vybavení pro děti. Na jaro a léto.</p>
+          </div>
+          <div class="ad-actions">
+            <button class="btn-mini" data-copy="bz3">Kopírovat text</button>
+            <button class="btn-mini ghost" data-copy-title="bz3-title">Kopírovat titulek</button>
+          </div>
+        </div>
+        <div class="ad-body">
+          <p class="field-label">Titulek (59 znaků)</p>
+          <div class="ad-title-box" id="bz3-title">Obytný vůz pro rodinu 6 osob, ISOFIX, sprcha a WC, pronájem</div>
+
+          <p class="field-label spaced">Text inzerátu</p>
+          <pre class="ad-text" id="bz3">Pronajmu rodinný obytný vůz Carado A 464, rok 2023. Alkovna s šesti místy k jízdě i ke spaní - nikdo nespí na zemi a každý má své lůžko.
+
+KDE SE SPÍ
+- Pevné dvoulůžko vzadu, připravené celý den
+- Velká alkovna nad kabinou pro dvě osoby
+- Jídelní kout rozložitelný na další lůžko
+
+PRO DĚTI
+- ISOFIX pro dvě dětské sedačky
+- Vlastní koupelna s oddělenou sprchou a WC, nemusíte v noci přes celý kemp
+- Zatemnění oken a moskytiéry, děti se vyspí i při světlých večerech
+- Nosič na 4 kola a garáž s nosností 150 kg na kola, koloběžky i kočárek
+- Markýza s LED osvětlením pro posezení před vozem
+
+KUCHYŇ A POHODLÍ
+- Lednice, vařič, dřez a dost úložného prostoru
+- Topení Truma Combi 6 s bojlerem, teplá voda kdykoli
+- Klimatizace v obytné části i v kabině
+- Solární panely s přídavnou baterií, vydržíte i mimo kemp
+- Zásuvky 230 V, 12 V a USB
+
+ŘÍZENÍ
+Délka 7,24 m, manuální převodovka, řidičský průkaz skupiny B. Parkovací kamera a senzory. Při předání vás celým vozem provedu a vysvětlím obsluhu, takže vyjedete v klidu, i když je to vaše první cesta karavanem.
+
+CENA
+Květen a září 4 290 Kč/den, červen 4 590 Kč/den, červenec a srpen 4 790 Kč/den. Mimo sezónu od 3 090 Kč/den. V ceně neomezené kilometry, pojištění, dálniční známka a základní výbava. Servisní poplatek 1 500 Kč, vratná kauce 25 000 Kč. Pronájem od 11 dní má slevu 10 %, od 21 dní 15 %.
+
+Minimální délka pronájmu v hlavní sezóně 5 dní, jinak 2 dny. Ve voze se nekouří. Pes nebo kočka za 1 000 Kč jednorázově.
+
+Místo převzetí Praha 4 - Braník. Letní termíny se obsazují napřed, ozvěte se včas.
+
+Telefon: 777 97 00 95
+E-mail: f.motycka@seznam.cz</pre>
+
+          <div class="meta-row">
+            <span class="chip"><b>Sekce:</b> Auto → Karavany, obytné vozy</span>
+            <span class="chip"><b>Lokalita:</b> Praha 4, PSČ 147 00</span>
+            <span class="chip"><b>Cena:</b> 4 290 Kč</span>
+          </div>
+
+          <p class="field-label spaced">Doporučené fotky a pořadí</p>
+          <div class="photos">
+            <figure><img src="src/carado-a464-ext-priroda.jpg" alt="Obytný vůz v přírodě" loading="lazy"><figcaption><span class="order">1.</span> V přírodě – náhledová</figcaption></figure>
+            <figure><img src="src/carado-a464-int-loznice.jpg" alt="Ložnice" loading="lazy"><figcaption><span class="order">2.</span> Pevné lůžko vzadu</figcaption></figure>
+            <figure><img src="src/carado-a464-ext-predek-2.jpg" alt="Alkovna nad kabinou" loading="lazy"><figcaption><span class="order">3.</span> Alkovna nad kabinou</figcaption></figure>
+            <figure><img src="src/pudorys-carado-a464.jpg" alt="Půdorys vozu" loading="lazy"><figcaption><span class="order">4.</span> Půdorys – rozložení lůžek</figcaption></figure>
+            <figure><img src="src/carado-a464-int-celkovy-pohled.jpg" alt="Interiér celkový pohled" loading="lazy"><figcaption><span class="order">5.</span> Interiér</figcaption></figure>
+            <figure><img src="src/carado-a464-int-kuchyn.jpg" alt="Kuchyňský kout" loading="lazy"><figcaption><span class="order">6.</span> Kuchyň</figcaption></figure>
+            <figure><img src="src/carado-a464-int-koupelna.jpg" alt="Koupelna" loading="lazy"><figcaption><span class="order">7.</span> Koupelna se sprchou</figcaption></figure>
+            <figure><img src="src/carado-a464-int-kabina.jpg" alt="Kabina řidiče" loading="lazy"><figcaption><span class="order">8.</span> Kabina</figcaption></figure>
+          </div>
+        </div>
+      </article>
+
+      <!-- BZ 4 -->
+      <article class="ad">
+        <div class="ad-head">
+          <div>
+            <h3>BZ 4 – Mimosezóna a levné víkendy</h3>
+            <p class="tagline">Cena v titulku jako hlavní tahák. Na listopad až duben.</p>
+          </div>
+          <div class="ad-actions">
+            <button class="btn-mini" data-copy="bz4">Kopírovat text</button>
+            <button class="btn-mini ghost" data-copy-title="bz4-title">Kopírovat titulek</button>
+          </div>
+        </div>
+        <div class="ad-body">
+          <p class="field-label">Titulek (56 znaků)</p>
+          <div class="ad-title-box" id="bz4-title">Obytný vůz od 3090 Kč/den, vytápěný, i na víkend, Praha</div>
+
+          <p class="field-label spaced">Text inzerátu</p>
+          <pre class="ad-text" id="bz4">Pronajmu obytný vůz Carado A 464 (2023) mimo hlavní sezónu za zvýhodněnou cenu. Minimální délka pronájmu jsou 2 dny, takže se vyplatí i na prodloužený víkend.
+
+CENA ZA DEN
+- Listopad, 1.-22. prosince, leden: 3 090 Kč
+- Únor až duben, říjen, 23.-31. prosince: 3 790 Kč
+
+Vůz je vybavený na chladné měsíce: plynové topení Truma Combi 6 s 10l bojlerem, izolovaná odpadní nádrž, zatemnění oken a čalounění Arctica. Uvnitř je teplo a teplou vodu máte kdykoli.
+
+VÝBAVA
+- 6 míst k jízdě i ke spaní, pevné lůžko vzadu a alkovna nad kabinou
+- Koupelna s oddělenou sprchou a WC
+- Kuchyň s lednicí, vařičem a dřezem
+- Klimatizace v obytné části i v kabině
+- Solární panely a přídavná baterie
+- Zásuvky 230 V, 12 V a USB
+- Markýza s LED osvětlením, garáž na 150 kg, nosič na 4 kola
+- Parkovací kamera a senzory, tempomat, ISOFIX
+
+Délka 7,24 m, manuální převodovka, řidičský průkaz skupiny B. Řidič od 21 let.
+
+V ceně neomezený nájezd, povinné ručení i havarijní pojištění, dálniční známka a základní výbava. Servisní poplatek 1 500 Kč jednorázově, vratná kauce 25 000 Kč. Delší pronájem se slevou: od 11 dní 10 %, od 21 dní 15 %.
+
+Vůz předávám čistý s plnou nádrží, při předání projdeme celou obsluhu. Ve voze se nekouří, zvířata za 1 000 Kč jednorázově.
+
+Místo převzetí Praha 4 - Braník. Napište nebo zavolejte s termínem, obratem potvrdím dostupnost.
+
+Telefon: 777 97 00 95
+E-mail: f.motycka@seznam.cz</pre>
+
+          <div class="meta-row">
+            <span class="chip"><b>Sekce:</b> Auto → Karavany, obytné vozy</span>
+            <span class="chip"><b>Lokalita:</b> Praha 4, PSČ 147 00</span>
+            <span class="chip"><b>Cena:</b> 3 090 Kč</span>
+          </div>
+
+          <p class="field-label spaced">Doporučené fotky a pořadí</p>
+          <div class="photos">
+            <figure><img src="src/carado-a464-ext-bok-2.jpg" alt="Carado A 464 z boku" loading="lazy"><figcaption><span class="order">1.</span> Z boku – náhledová</figcaption></figure>
+            <figure><img src="src/carado-a464-ext-cela.jpg" alt="Carado A 464 celkový pohled" loading="lazy"><figcaption><span class="order">2.</span> Celkový pohled</figcaption></figure>
+            <figure><img src="src/carado-a464-int-celkovy-pohled.jpg" alt="Interiér celkový pohled" loading="lazy"><figcaption><span class="order">3.</span> Vytápěný interiér</figcaption></figure>
+            <figure><img src="src/carado-a464-int-koupelna.jpg" alt="Koupelna" loading="lazy"><figcaption><span class="order">4.</span> Sprcha s teplou vodou</figcaption></figure>
+            <figure><img src="src/carado-a464-int-kuchyn.jpg" alt="Kuchyňský kout" loading="lazy"><figcaption><span class="order">5.</span> Kuchyň</figcaption></figure>
+            <figure><img src="src/carado-a464-int-loznice.jpg" alt="Ložnice" loading="lazy"><figcaption><span class="order">6.</span> Pevné lůžko</figcaption></figure>
+            <figure><img src="src/Grossglockner-Hochalpenstrasse.webp" alt="Horská cesta Grossglockner" loading="lazy"><figcaption><span class="order">7.</span> Tip na trasu do hor</figcaption></figure>
+          </div>
+        </div>
+      </article>
+
+      <!-- BZ 5 -->
+      <article class="ad">
+        <div class="ad-head">
+          <div>
+            <h3>BZ 5 – Konkrétní volný termín</h3>
+            <p class="tagline">Krátký inzerát na doplnění mezery v kalendáři. Doplňte datum a cenu.</p>
+          </div>
+          <div class="ad-actions">
+            <button class="btn-mini" data-copy="bz5">Kopírovat text</button>
+            <button class="btn-mini ghost" data-copy-title="bz5-title">Kopírovat titulek</button>
+          </div>
+        </div>
+        <div class="ad-body">
+          <div class="panel-note" style="margin-top:0">
+            <strong>Doplňte před vložením:</strong> <code>[TERMÍN]</code> = konkrétní data,
+            <code>[POČET]</code> = počet dní, <code>[CENA]</code> = celková cena z kalkulačky
+            na stránce Rezervace. V titulku napište termín stručně, např. „18.-25.7.“,
+            aby se vešel do 60 znaků.
+          </div>
+
+          <p class="field-label">Titulek</p>
+          <div class="ad-title-box" id="bz5-title">Obytný vůz volný [TERMÍN], 6 osob, Carado A 464, Praha</div>
+
+          <p class="field-label spaced">Text inzerátu</p>
+          <pre class="ad-text" id="bz5">VOLNÝ TERMÍN: [TERMÍN]
+
+Obytný vůz Carado A 464 (rok 2023) je v tomto termínu volný. Alkovna pro 6 osob, 6 míst ke spaní, délka 7,24 m, manuál, řidičský průkaz skupiny B.
+
+Celková cena za [POČET] dní: [CENA] Kč. V ceně neomezené kilometry, povinné ručení i havarijní pojištění, dálniční známka a základní výbava. Servisní poplatek 1 500 Kč, vratná kauce 25 000 Kč.
+
+VE VOZE
+- Pevné lůžko vzadu, alkovna nad kabinou, rozkládací jídelní kout
+- Koupelna s oddělenou sprchou a WC
+- Kuchyň s lednicí, vařičem a dřezem
+- Topení Truma s bojlerem, klimatizace, solární panely
+- Markýza s LED osvětlením, garáž na 150 kg, nosič na 4 kola
+- ISOFIX, parkovací kamera a senzory, tempomat
+
+Převzetí od 14:00 první den, vrácení do 10:00 poslední den. Místo Praha 4 - Braník. Při předání projdeme celou obsluhu vozu. Ve voze se nekouří, pes nebo kočka za 1 000 Kč.
+
+Termín platí pro toho, kdo potvrdí zálohu.
+
+Telefon: 777 97 00 95
+E-mail: f.motycka@seznam.cz</pre>
+
+          <div class="meta-row">
+            <span class="chip"><b>Sekce:</b> Auto → Karavany, obytné vozy</span>
+            <span class="chip"><b>Lokalita:</b> Praha 4, PSČ 147 00</span>
+            <span class="chip"><b>Cena:</b> celková cena termínu</span>
+          </div>
+
+          <p class="field-label spaced">Doporučené fotky a pořadí</p>
+          <div class="photos">
+            <figure><img src="src/carado-a464-ext-predek.jpg" alt="Carado A 464 zepředu" loading="lazy"><figcaption><span class="order">1.</span> Zepředu – náhledová</figcaption></figure>
+            <figure><img src="src/carado-a464-int-celkovy-pohled.jpg" alt="Interiér celkový pohled" loading="lazy"><figcaption><span class="order">2.</span> Interiér</figcaption></figure>
+            <figure><img src="src/carado-a464-int-loznice.jpg" alt="Ložnice" loading="lazy"><figcaption><span class="order">3.</span> Pevné lůžko</figcaption></figure>
+            <figure><img src="src/carado-a464-int-kuchyn.jpg" alt="Kuchyňský kout" loading="lazy"><figcaption><span class="order">4.</span> Kuchyň</figcaption></figure>
+            <figure><img src="src/carado-a464-int-koupelna.jpg" alt="Koupelna" loading="lazy"><figcaption><span class="order">5.</span> Koupelna</figcaption></figure>
+            <figure><img src="src/pudorys-carado-a464.jpg" alt="Půdorys vozu" loading="lazy"><figcaption><span class="order">6.</span> Půdorys</figcaption></figure>
+          </div>
+        </div>
+      </article>
+
+      <!-- BZ 6 – AKTUÁLNÍ TERMÍN 28. 10. -->
+      <article class="ad live">
+        <div class="ad-head">
+          <div>
+            <span class="badge-live">Aktuální – poslední termín</span>
+            <h3>BZ 6 – Prodloužený víkend 28. 10., poslední možnost</h3>
+            <p class="tagline">Konkrétní termín s cenou. Bez emoji, titulek do 60 znaků, s diakritikou.</p>
+          </div>
+          <div class="ad-actions">
+            <button class="btn-mini" data-copy="bz6">Kopírovat text</button>
+            <button class="btn-mini ghost" data-copy-title="bz6-title">Kopírovat titulek</button>
+          </div>
+        </div>
+        <div class="ad-body">
+          <p class="field-label">Titulek</p>
+          <div class="ad-title-box" id="bz6-title">Poslední termín 28.10.-1.11., obytný vůz 6 osob, Praha</div>
+
+          <p class="field-label spaced">Text inzerátu</p>
+          <pre class="ad-text" id="bz6">POSLEDNÍ VOLNÝ TERMÍN: 28. 10. - 1. 11.
+
+Prodloužený víkend na Den vzniku ČSR je jediný termín, který máme letos ještě volný. Potom už je kalendář do zimy obsazený.
+
+Od středy 28. 10. (státní svátek) do nedělního večera 1. 11., celkem 5 dní. Říjen je na cestování karavanem ideální - kempy jsou poloprázdné a nikde se netlačíte.
+
+OBYTNÝ VŮZ CARADO A 464, rok 2023
+- 6 míst k jízdě, 6 míst ke spaní
+- Pevné lůžko vzadu, velká alkovna nad kabinou, rozkládací jídelní kout
+- Koupelna s oddělenou sprchou a WC
+- Kuchyň s lednicí, vařičem a dřezem
+- Plynové topení Truma Combi 6 s 10l bojlerem, teplá voda kdykoli
+- Klimatizace, solární panely s přídavnou baterií
+- Markýza s LED osvětlením, garáž s nosností 150 kg, nosič na 4 kola
+- ISOFIX pro dvě dětské sedačky, parkovací kamera a senzory, tempomat
+
+CENA ZA CELÝ TERMÍN: 19 750 Kč
+Rozpis: 4 dny x 3 790 Kč (říjnová sazba) + 1 den x 3 090 Kč (listopadová sazba) + servisní poplatek 1 500 Kč.
+
+V ceně je neomezený nájezd kilometrů, povinné ručení i havarijní pojištění, dálniční známka a základní výbava. Vratná kauce 25 000 Kč při převzetí.
+
+Délka 7,24 m, manuální převodovka, řidičský průkaz skupiny B. Řidič starší 21 let. Při předání projdeme celý vůz a jeho obsluhu, takže vyjedete v klidu, i když jedete karavanem poprvé.
+
+Převzetí 28. 10. od 14:00, vrácení 1. 11. do 10:00. Místo Praha 4 - Braník. Vůz předávám čistý s plnou nádrží. Ve voze se nekouří, pes nebo kočka za 1 000 Kč jednorázově.
+
+Termín platí pro toho, kdo potvrdí zálohu. Volejte nebo pište.
+
+Telefon: 777 97 00 95
+E-mail: f.motycka@seznam.cz</pre>
+
+          <div class="meta-row">
+            <span class="chip"><b>Termín:</b> 28. 10. – 1. 11. (5 dní)</span>
+            <span class="chip"><b>Cena do pole:</b> 19 750 Kč</span>
+            <span class="chip"><b>Sekce:</b> Auto → Karavany, obytné vozy</span>
+            <span class="chip"><b>Lokalita:</b> Praha 4, PSČ 147 00</span>
+          </div>
+
+          <p class="field-label spaced">Doporučené fotky a pořadí</p>
+          <div class="photos">
+            <figure><img src="src/carado-a464-ext-priroda.jpg" alt="Obytný vůz v přírodě" loading="lazy"><figcaption><span class="order">1.</span> V přírodě – náhledová</figcaption></figure>
+            <figure><img src="src/carado-a464-ext-bok.jpg" alt="Carado A 464 z boku" loading="lazy"><figcaption><span class="order">2.</span> Z boku</figcaption></figure>
+            <figure><img src="src/carado-a464-int-celkovy-pohled.jpg" alt="Interiér celkový pohled" loading="lazy"><figcaption><span class="order">3.</span> Vytápěný interiér</figcaption></figure>
+            <figure><img src="src/carado-a464-int-loznice.jpg" alt="Ložnice" loading="lazy"><figcaption><span class="order">4.</span> Pevné lůžko vzadu</figcaption></figure>
+            <figure><img src="src/carado-a464-int-kuchyn.jpg" alt="Kuchyňský kout" loading="lazy"><figcaption><span class="order">5.</span> Kuchyň</figcaption></figure>
+            <figure><img src="src/carado-a464-int-koupelna.jpg" alt="Koupelna" loading="lazy"><figcaption><span class="order">6.</span> Sprcha s teplou vodou</figcaption></figure>
+            <figure><img src="src/pudorys-carado-a464.jpg" alt="Půdorys vozu" loading="lazy"><figcaption><span class="order">7.</span> Půdorys</figcaption></figure>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <div class="panel-note no-print" style="margin-top:40px">
+      <strong>Poznámky k používání.</strong>
+      Inzeráty <b>FB 6</b> a <b>BZ 6</b> platí jen pro termín 28. 10. – 1. 11. Až bude obsazený
+      nebo termín projde, stáhněte je z obou platforem, ať nevisí neplatná nabídka.
+      Ceny a podmínky v textech odpovídají <a href="cenik.html">ceníku</a> ke dni 8. 10. 2026 –
+      když ceník upravíte, projděte i tyhle inzeráty. Fotky jsou v adresáři
+      <code>src/</code>, na inzertní weby je nahrávejte přímo z disku. Stránku si můžete
+      vytisknout nebo uložit do PDF (Ctrl+P) – tlačítka a záložky se nevytisknou
+      a vyjdou obě platformy za sebou.
+    </div>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    (function () {
+      var tabs = [
+        { btn: document.getElementById('tab-fb'), panel: document.getElementById('panel-fb') },
+        { btn: document.getElementById('tab-bazos'), panel: document.getElementById('panel-bazos') }
+      ];
+      function select(i) {
+        tabs.forEach(function (t, idx) {
+          t.btn.setAttribute('aria-selected', String(idx === i));
+          t.panel.hidden = idx !== i;
+        });
+      }
+      tabs.forEach(function (t, i) {
+        t.btn.addEventListener('click', function () { select(i); });
+      });
+
+      var toast = document.getElementById('toast');
+      var toastTimer;
+      function showToast(msg) {
+        toast.textContent = msg;
+        toast.classList.add('show');
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(function () { toast.classList.remove('show'); }, 2000);
+      }
+
+      function copyText(text, btn, label) {
+        function ok() {
+          showToast(label + ' zkopírován do schránky');
+          var original = btn.textContent;
+          btn.textContent = 'Zkopírováno ✓';
+          btn.classList.add('done');
+          setTimeout(function () {
+            btn.textContent = original;
+            btn.classList.remove('done');
+          }, 1800);
+        }
+        function fallback() {
+          var ta = document.createElement('textarea');
+          ta.value = text;
+          ta.setAttribute('readonly', '');
+          ta.style.position = 'fixed';
+          ta.style.opacity = '0';
+          document.body.appendChild(ta);
+          ta.select();
+          try { document.execCommand('copy'); ok(); }
+          catch (e) { showToast('Kopírování se nepovedlo, označte text myší'); }
+          document.body.removeChild(ta);
+        }
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(ok, fallback);
+        } else {
+          fallback();
+        }
+      }
+
+      document.addEventListener('click', function (e) {
+        var btn = e.target.closest('[data-copy], [data-copy-title]');
+        if (!btn) return;
+        var id = btn.getAttribute('data-copy');
+        if (id) {
+          copyText(document.getElementById(id).textContent, btn, 'Text inzerátu');
+          return;
+        }
+        id = btn.getAttribute('data-copy-title');
+        if (id) copyText(document.getElementById(id).textContent.trim(), btn, 'Titulek');
+      });
+    })();
+  </script>
+</body>
+</html>
